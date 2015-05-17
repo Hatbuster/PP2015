@@ -2,8 +2,8 @@ package control;
 
 public class Run {
 	
-	public static void main (){
-		System.out.println("I wanna be a fishtank");		
+	public static void main (String[] args){
+		System.out.println("I wanna be a fishtank!");		
 	}
 	
 

@@ -19,8 +19,8 @@ public class Ocean {
 		int yPos = fish.getY();
 		// randomize delta to move fish
 		Random rand = new Random();
-		int xMove = rand.nextInt(6) - 3;
-		int yMove = rand.nextInt(6) - 3;
+		int xMove = rand.nextInt(61) - 30;
+		int yMove = rand.nextInt(61) - 30;
 		// if new location is valid, move fish accordingly
 		if ((xPos + xMove >= 0) && (xPos + xMove <= width)) {
 			fish.setX(xPos + xMove);

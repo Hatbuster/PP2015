@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Random;
 
 public class Ocean {
 	private int width;
@@ -13,7 +14,21 @@ public class Ocean {
 	}
 
 	public void move() {
-		// TODO do sth with x and y of fish
+		// get fish position
+		int xPos = fish.getX();
+		int yPos = fish.getY();
+		// randomize delta to move fish
+		Random rand = new Random();
+		int xMove = rand.nextInt(6) - 3;
+		int yMove = rand.nextInt(6) - 3;
+		// if new location is valid, move fish accordingly
+		if ((xPos + xMove >= 0) && (xPos + xMove <= width)) {
+			fish.setX(xPos + xMove);
+		}
+		if ((yPos + yMove >= 0) && (yPos + yMove <= depth)) {
+			fish.setY(yPos + yMove);
+		}
+
 	}
 
 	public String toString() {

@@ -47,16 +47,12 @@ public class Ocean implements OceanInterface {
 		this.depth = depth;
 	}
 
-	@Override
 	public LinkedList<OceanObject> getOceanObjects() {
-		// TODO Auto-generated method stub
-		return null;
+		return oceanObjects;
 	}
 
-	@Override
 	public void setOceanObjects(LinkedList<OceanObject> oceanObjects) {
-		// TODO Auto-generated method stub
-		
+		this.oceanObjects = oceanObjects;		
 	}
 
 }

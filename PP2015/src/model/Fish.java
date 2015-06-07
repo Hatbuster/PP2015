@@ -2,12 +2,36 @@ package model;
 
 import java.util.Random;
 
+/**
+ * The Class for a Bubble
+ * 
+ * @author Tobias
+ *
+ */
 public class Fish extends OceanObject {
 
+	/**
+     * Creating a Fish using the Constructor of the Superclass
+     * 
+     * @param x
+     *            The x-Position of the Bubble
+     * @param y
+     *            The y-Position of the Bubble
+     * @param name
+     *            The Name of the Bubble
+     */
 	public Fish(int x, int y, String name) {
 		super(x, y, name);
 	}
 
+	/**
+	 * Moves a Fish inside the Ocean, for now the Fish has a random move, moving in a range limited from -30/30 and can't move outside the Ocean
+	 * 
+	 * @param width
+	 * 				The Width the Fish moves within
+	 * @param depth
+	 * 				The Depth the Fish moves within
+	 */
 	public void move(int width, int depth) {
 		// get fish position
 		int xPos = super.getX();
@@ -24,4 +48,12 @@ public class Fish extends OceanObject {
 			super.setY(yPos + yMove);
 		}
 	}
+	
+	/**
+	 * @return A String containing the name and the position of an OceanObject, by calling method of Superclass
+	 */
+	public String toString() {
+		return super.toString();
+	}
+	
 }

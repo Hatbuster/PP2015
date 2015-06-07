@@ -130,4 +130,22 @@ public class Ocean implements OceanInterface {
 		this.oceanObjects = oceanObjects;		
 	}
 
+	/**
+	 * Adds an OceanObject to an Ocean
+	 * @param
+	 * 			The Object to add
+	 */
+	public void addOceanObject(OceanObject oceanObject) {
+		this.oceanObjects.add(oceanObject);
+	}
+
+	/**
+	 * Removes an OceanObject from an Ocean
+	 * @param
+	 * 			Integer of the Object to remove
+	 */
+	public void removeOceanObject(int oceanObject) {
+		this.oceanObjects.remove(oceanObject);
+	}
+
 }

@@ -52,6 +52,20 @@ public interface OceanInterface {
 	public void setOceanObjects(LinkedList<OceanObject> oceanObjects);
 
 	/**
+	 * Adds an OceanObject to an Ocean
+	 * @param
+	 * 			The Object to add
+	 */
+	public void addOceanObject(OceanObject oceanObject);
+	
+	/**
+	 * Removes an OceanObject from an Ocean
+	 * @param
+	 * 			Integer of the Object to remove
+	 */
+	public void removeOceanObject(int oceanObject);
+	
+	/**
 	 * Moves all Objects in the Ocean
 	 */
 	public void move();

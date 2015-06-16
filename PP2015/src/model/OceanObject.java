@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.net.URL;
 
 /**
  * The abstract Class which every Object in the Ocean is based on
@@ -23,6 +24,8 @@ public abstract class OceanObject implements Serializable {
 	 */
 	private String name;
 	
+	private URL pictureURL;
+	
 	/**
 	 * Constructor creating an OceanObject
 	 * @param x
@@ -32,10 +35,11 @@ public abstract class OceanObject implements Serializable {
 	 * @param name
 	 * 			The Name the Object should have
 	 */
-	public OceanObject(int x, int y, String name) {
+	public OceanObject(int x, int y, String name, URL url) {
 		this.x = x;
 		this.y = y;
 		this.name = name;
+		this.pictureURL = url;
 	}
 	
 	/**
@@ -103,6 +107,16 @@ public abstract class OceanObject implements Serializable {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	
+	public URL getPictureURL() {
+		return pictureURL;
+	}
+	
+
+	public void setPictureURL(URL pictureURL) {
+		this.pictureURL = pictureURL;
 	}
 
 }

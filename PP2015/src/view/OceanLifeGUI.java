@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.LinkedList;
@@ -16,9 +17,13 @@ import javax.swing.JTextField;
 
 import control.MyButtonListener;
 import control.OceanLifeController;
+import model.Bubble;
+import model.Fish;
 import model.Ocean;
 import model.OceanInterface;
 import model.OceanObject;
+import model.Plant;
+import model.Stone;
 
 public class OceanLifeGUI {
 
@@ -41,7 +46,7 @@ public class OceanLifeGUI {
 		
 		mbl = new MyButtonListener(oceanLifeController,this);
 		
-		drawPanel = new DrawGUI(ocean.getWidth(),ocean.getDepth(),300);
+		drawPanel = new DrawGUI(ocean.getWidth(),ocean.getDepth(),300,oi.getOceanObjects());
 		userPanel = new UserGUI(300,ocean.getDepth(),mbl);
 		
 		frame.add(drawPanel);
@@ -65,22 +70,38 @@ public class OceanLifeGUI {
 	public void setUserPanel(UserGUI userPanel) {
 		this.userPanel = userPanel;
 	}
+	
 
 	public class DrawGUI extends JPanel {
 
 		private static final long serialVersionUID = 1L;
+		private LinkedList<OceanObject> oceanObjects;
 
-		public DrawGUI(int width, int depth,int margin) {
-			this.setLayout(null);
+		public DrawGUI(int width, int depth,int margin, LinkedList<OceanObject> oceanObjects) {
 			this.setBounds(margin, 0, width, depth);
+			this.setBackground(Color.BLUE);
+			this.oceanObjects = oceanObjects;
 		}
 		
 		@Override
-		public void paint(Graphics g) {
+		public void paintComponent(Graphics g) {
+			super.paintComponent(g);
 			try {
-	            URL url = OceanLifeGUI.class.getResource("/res/Ocean.png");
-	           	BufferedImage background = ImageIO.read(url);
-	           	g.drawImage(background, 0, 0, null);
+				Graphics2D g2 = (Graphics2D) g;
+	           	for (OceanObject o : oceanObjects) {
+	           		if (o.getClass().equals(Fish.class)) {
+	           			g2.drawImage(ImageIO.read(OceanLifeController.class.getResource("/res/fish (2).png")), o.getX(), o.getY(), null);
+	           		}
+	           		else if (o.getClass().equals(Bubble.class)) {
+	           			g2.drawImage(ImageIO.read(OceanLifeController.class.getResource("/res/bubble.png")), o.getX(), o.getY(), null);
+	           		}
+	           		else if (o.getClass().equals(Stone.class)) {
+	           			g2.drawImage(ImageIO.read(OceanLifeController.class.getResource("/res/stone.png")), o.getX(), o.getY(), null);
+	           		}
+	           		else if (o.getClass().equals(Plant.class)) {
+	           			g2.drawImage(ImageIO.read(OceanLifeController.class.getResource("/res/plant.png")), o.getX(), o.getY(), null);
+	           		}
+	           	}
      
 			} catch (Exception e) {
 				

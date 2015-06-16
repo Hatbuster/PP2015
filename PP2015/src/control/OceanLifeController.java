@@ -35,10 +35,10 @@ public class OceanLifeController {
 
 		LinkedList<OceanObject> oceanObjects = new LinkedList<OceanObject>();
 
-		Fish fish = new Fish(50, 50, "Fish");
-		Bubble bubble = new Bubble(200, 768, "Bubble");
-		Stone stone = new Stone(100, 0, "Stone");
-		Plant plant = new Plant(800, 750, "Plant");
+		Fish fish = new Fish(50, 50, "Fish",OceanLifeController.class.getResource("/res/fish (2).png"));
+		Bubble bubble = new Bubble(200, 768, "Bubble",OceanLifeController.class.getResource("/res/fish (2).png"));
+		Stone stone = new Stone(100, 0, "Stone",OceanLifeController.class.getResource("/res/fish (2).png"));
+		Plant plant = new Plant(500, 600, "Plant",OceanLifeController.class.getResource("/res/fish (2).png"));
 
 		oceanObjects.add(fish);
 		oceanObjects.add(bubble);
@@ -48,10 +48,10 @@ public class OceanLifeController {
 		ocean = new Ocean(width, depth, oceanObjects);
 		oi = ocean;
 
-		step();
-		step();
-
 		gui = new OceanLifeGUI(ocean, this);
+		
+		step();
+		step();
 		
 		//GameThread thread = new GameThread(this);
 		//thread.start();
@@ -63,6 +63,8 @@ public class OceanLifeController {
 	public void step() {
 		oi.move();
 		System.out.println(oi);
+		gui.getUserPanel().repaint();
+		gui.getDrawPanel().repaint();
 	}
 
 	public void quit() {

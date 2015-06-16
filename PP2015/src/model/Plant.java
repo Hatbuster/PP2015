@@ -1,5 +1,6 @@
 package model;
 
+import java.net.URL;
 import java.util.Random;
 
 /**
@@ -20,8 +21,8 @@ public class Plant extends OceanObject {
      * @param name
      *            The Name of the Bubble
      */
-	public Plant(int x, int y, String name) {
-		super(x, y, name);
+	public Plant(int x, int y, String name,URL url) {
+		super(x, y, name,url);
 	}
 	
 	/**

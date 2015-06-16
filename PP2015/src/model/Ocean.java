@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
@@ -8,7 +9,7 @@ import java.util.LinkedList;
  * @author Tobias
  *
  */
-public class Ocean implements OceanInterface {
+public class Ocean implements OceanInterface, Serializable {
 	/**
 	 * The Width of an Ocean
 	 */
@@ -146,6 +147,10 @@ public class Ocean implements OceanInterface {
 	 */
 	public void removeOceanObject(int oceanObject) {
 		this.oceanObjects.remove(oceanObject);
+	}
+	
+	public Ocean getOcean() {
+		return this;
 	}
 
 }

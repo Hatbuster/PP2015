@@ -1,6 +1,15 @@
 package control;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.LinkedList;
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import view.OceanLifeGUI;
 import view.QuitFrame;
@@ -13,8 +22,10 @@ import model.Plant;
 import model.Stone;
 
 public class OceanLifeController {
-	
+
 	private OceanInterface oi;
+	private OceanLifeGUI gui;
+	private boolean running;
 
 	public void start() throws InterruptedException {
 		Ocean ocean;
@@ -25,9 +36,9 @@ public class OceanLifeController {
 		LinkedList<OceanObject> oceanObjects = new LinkedList<OceanObject>();
 
 		Fish fish = new Fish(50, 50, "Fish");
-		Bubble bubble = new Bubble(200,768,"Bubble");
-		Stone stone = new Stone(100,0,"Stone");
-		Plant plant = new Plant(800,750,"Plant");
+		Bubble bubble = new Bubble(200, 768, "Bubble");
+		Stone stone = new Stone(100, 0, "Stone");
+		Plant plant = new Plant(800, 750, "Plant");
 
 		oceanObjects.add(fish);
 		oceanObjects.add(bubble);
@@ -36,33 +47,132 @@ public class OceanLifeController {
 
 		ocean = new Ocean(width, depth, oceanObjects);
 		oi = ocean;
-		
+
 		step();
 		step();
+
+		gui = new OceanLifeGUI(ocean, this);
 		
-		new OceanLifeGUI(ocean,this);
+		//GameThread thread = new GameThread(this);
+		//thread.start();
 	}
+	
+	
+
 	
 	public void step() {
 		oi.move();
 		System.out.println(oi);
 	}
-	
+
 	public void quit() {
-		new QuitFrame(oi.getWidth(),oi.getDepth(),this);
+		new QuitFrame(oi.getWidth(), oi.getDepth(), this);
 	}
-	
+
 	public void addObject(OceanObject o) {
 		oi.addOceanObject(o);
 	}
-	
+
 	public void removeObject(int o) {
 		oi.removeOceanObject(o);
 	}
 
+	/*
 	public void save() {
-		// TODO Auto-generated method stub
-		
+		// bring up a file chooser
+		final JFileChooser chooser = new JFileChooser();
+		// set opening path to dir where this app runs
+		chooser.setCurrentDirectory(new File("."));
+		// get the state of selection
+		int selection = chooser.showSaveDialog(null);
+		// if the usere approved his choice
+		if (selection == JFileChooser.APPROVE_OPTION) {
+			try {
+				// make sure the file ends with .ocean
+				File selectedFile = chooser.getSelectedFile();
+				if (!selectedFile.getAbsolutePath().endsWith(".ocean")) {
+					selectedFile = new File(selectedFile.getAbsolutePath()
+							+ ".ocean");
+				}
+				// open File Stream
+				FileOutputStream os = new FileOutputStream(selectedFile);
+				// open object stream
+				ObjectOutputStream oos = new ObjectOutputStream(os);
+				// write the ocean to the file
+				oos.writeObject(oi.getOcean());
+				// close the stream
+				oos.close();
+				// inform user about success
+				final JOptionPane optionPane = new JOptionPane();
+				JOptionPane.showMessageDialog(optionPane,
+						"Succesfully saved ocean.", "Success",
+						JOptionPane.INFORMATION_MESSAGE);
+
+			} catch (Exception ex) {
+				// infrom user about failed save process
+				final JOptionPane optionPane = new JOptionPane();
+				JOptionPane.showMessageDialog(optionPane,
+						"Failed to save Ocean.", "Success",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	}
+	*/
+
+	/*
+	public void load() {
+		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+				"Ocean SaveFiles", "ocean");
+		chooser.setFileFilter(filter);
+		chooser.setCurrentDirectory(new File("."));
+		int returnVal = chooser.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			try {
+				// open new FIle stream from the selected file
+				FileInputStream is = new FileInputStream(
+						chooser.getSelectedFile());
+				// create new object stream with this stream
+				ObjectInputStream ois = new ObjectInputStream(is);
+
+				// read the new Ocean
+				Ocean newOcean = (Ocean) ois.readObject();
+				{
+					// change the current ocean
+					oi = newOcean;
+					gui.getUserPanel().setOceanObjects(oi.getOceanObjects());
+					gui.getUserPanel().repaint();
+				}
+				// close the stream
+				ois.close();
+
+				// Inform user about success
+				final JOptionPane optionPane = new JOptionPane();
+				JOptionPane.showMessageDialog(optionPane,
+						"Succesfully loaded ocean.", "Success",
+						JOptionPane.INFORMATION_MESSAGE);
+			} catch (Exception ex) {
+				// inform user if there was a error reading form the file
+				final JOptionPane optionPane = new JOptionPane();
+				JOptionPane.showMessageDialog(optionPane,
+						"Could not deserialize selection.\n"
+								+ "Please choose a correct File!\n", "ERROR",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		}
 	}
 
+
+	public void startGameLoop() {
+		running = true;
+	}
+
+	public void stopGameLoop() {
+		running = false;
+	}
+	
+	public boolean getRunning() {
+		return running;
+	}
+	*/
 }

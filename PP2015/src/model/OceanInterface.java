@@ -76,5 +76,7 @@ public interface OceanInterface {
 	 */
 	@Override
 	public String toString();
+	
+	public Ocean getOcean();
 
 }

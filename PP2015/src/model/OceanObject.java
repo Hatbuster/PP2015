@@ -1,12 +1,14 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * The abstract Class which every Object in the Ocean is based on
  * 
  * @author Tobias
  *
  */
-public abstract class OceanObject {
+public abstract class OceanObject implements Serializable {
 	
 	/**
 	 * X-Coordinate of an OceanObject

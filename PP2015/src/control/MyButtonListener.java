@@ -43,22 +43,19 @@ public class MyButtonListener implements ActionListener {
 	}
 
 	private void save() {
-		olc.save();
+		//olc.save();
 	}
 
 	private void load() {
-		// TODO Auto-generated method stub
-
+		//olc.load();
 	}
 
 	private void start() {
-		// TODO Auto-generated method stub
-
+		//olc.startGameLoop();
 	}
 
 	private void stop() {
-		// TODO Auto-generated method stub
-
+		//olc.stopGameLoop();
 	}
 
 	/**
@@ -98,6 +95,9 @@ public class MyButtonListener implements ActionListener {
 		gui.getUserPanel().removeSelectedObject();
 	}
 
+	/**
+	 * Calls a single move() on every OceanObejct
+	 */
 	private void step() {
 		olc.step();
 	}

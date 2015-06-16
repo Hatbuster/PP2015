@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.util.LinkedList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -231,6 +232,14 @@ public class OceanLifeGUI {
 
 		public int getSelectedObject() {
 			return oceanObjectBox.getSelectedIndex();
+		}
+		
+		public void setOceanObjects(LinkedList<OceanObject> oceanObjects) {
+			oceanObjectBox.removeAllItems();
+			for (OceanObject o : oceanObjects) {
+				oceanObjectBox.addItem(o);
+			}
+			
 		}
 
 	}

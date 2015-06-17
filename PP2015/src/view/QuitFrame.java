@@ -13,6 +13,7 @@ public class QuitFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private QuitFrameListener qfl;
+	@SuppressWarnings("unused")
 	private OceanLifeController olc;
 	
 	public QuitFrame(int width, int depth, OceanLifeController olc) {

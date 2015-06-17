@@ -3,6 +3,8 @@ package view;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.net.URL;
 import java.util.LinkedList;
 
 import javax.imageio.ImageIO;
@@ -77,6 +79,7 @@ public class OceanLifeGUI {
 
 		public DrawGUI(int width, int depth,int margin, LinkedList<OceanObject> oceanObjects) {
 			this.setBounds(margin, 0, width, depth);
+			this.setBackground(Color.BLUE);
 			this.oceanObjects = oceanObjects;
 		}
 		
@@ -85,19 +88,18 @@ public class OceanLifeGUI {
 			super.paintComponent(g);
 			try {
 				Graphics2D g2 = (Graphics2D) g;
-				g2.drawImage(ImageIO.read(OceanLifeController.class.getResource("/res/Ocean.png")),0,0,null);
 	           	for (OceanObject o : oceanObjects) {
 	           		if (o.getClass().equals(Fish.class)) {
-	           			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(), o.getY(), null);
+	           			g2.drawImage(ImageIO.read(OceanLifeController.class.getResource("/res/fish (2).png")), o.getX(), o.getY(), null);
 	           		}
 	           		else if (o.getClass().equals(Bubble.class)) {
-	           			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(), o.getY(), null);
+	           			g2.drawImage(ImageIO.read(OceanLifeController.class.getResource("/res/bubble.png")), o.getX(), o.getY(), null);
 	           		}
 	           		else if (o.getClass().equals(Stone.class)) {
-	           			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(), o.getY(), null);
+	           			g2.drawImage(ImageIO.read(OceanLifeController.class.getResource("/res/stone.png")), o.getX(), o.getY(), null);
 	           		}
 	           		else if (o.getClass().equals(Plant.class)) {
-	           			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(), o.getY(), null);
+	           			g2.drawImage(ImageIO.read(OceanLifeController.class.getResource("/res/plant.png")), o.getX(), o.getY(), null);
 	           		}
 	           	}
      

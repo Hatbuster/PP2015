@@ -62,7 +62,8 @@ public class QuitFrame extends JFrame {
 		}
 
 		private void save() {
-			olc.save();
+			
+			//olc.save();
 		}
 		
 		private void cancel() {

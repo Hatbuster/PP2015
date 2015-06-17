@@ -1,10 +1,10 @@
 package view;
 
+import control.OceanLifeController;
+
 public class OceanLifeView {
 
-	public void repaint() {
-		// TODO Auto-generated method stub
-		
-	}
+	OceanLifeController oceanLifeController;
+	OceanLifeGUI oceanLifeGUI;
 
 }

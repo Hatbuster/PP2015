@@ -12,6 +12,11 @@ import java.util.Random;
 public class Fish extends OceanObject {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Creating a Fish using the Constructor of the Superclass
      * 
      * @param x

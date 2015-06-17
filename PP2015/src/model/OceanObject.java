@@ -12,6 +12,10 @@ import java.net.URL;
 public abstract class OceanObject implements Serializable {
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
 	 * X-Coordinate of an OceanObject
 	 */
 	private int x;

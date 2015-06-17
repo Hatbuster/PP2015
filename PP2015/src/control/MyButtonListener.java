@@ -70,16 +70,16 @@ public class MyButtonListener implements ActionListener {
 		OceanObject oceanObject = null;
 		switch (gui.getUserPanel().getSelectedClass()) {
 		case "Fish":
-			oceanObject = new Fish(x, y, name);
+			oceanObject = new Fish(x, y, name,MyButtonListener.class.getResource("/res/fish (2).png"));
 			break;
 		case "Bubble":
-			oceanObject = new Bubble(x, y, name);
+			oceanObject = new Bubble(x, y, name,MyButtonListener.class.getResource("/res/bubble.png"));
 			break;
 		case "Plant":
-			oceanObject = new Plant(x, y, name);
+			oceanObject = new Plant(x, y, name,MyButtonListener.class.getResource("/res/plant.png"));
 			break;
 		case "Stone":
-			oceanObject = new Stone(x, y, name);
+			oceanObject = new Stone(x, y, name,MyButtonListener.class.getResource("/res/stone.png"));
 			break;
 		}
 		//add the Object to Ocean

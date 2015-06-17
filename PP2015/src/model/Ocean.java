@@ -11,6 +11,10 @@ import java.util.LinkedList;
  */
 public class Ocean implements OceanInterface, Serializable {
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
 	 * The Width of an Ocean
 	 */
 	private int width;

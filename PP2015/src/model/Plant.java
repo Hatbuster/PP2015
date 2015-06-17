@@ -12,6 +12,11 @@ import java.util.Random;
 public class Plant extends OceanObject {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Creating a Plant using the Constructor of the Superclass
      * 
      * @param x

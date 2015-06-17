@@ -1,15 +1,6 @@
 package control;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.LinkedList;
-
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import view.OceanLifeGUI;
 import view.QuitFrame;
@@ -25,7 +16,7 @@ public class OceanLifeController {
 
 	private OceanInterface oi;
 	private OceanLifeGUI gui;
-	private boolean running;
+	//private boolean running;
 
 	public void start() throws InterruptedException {
 		Ocean ocean;
@@ -36,9 +27,9 @@ public class OceanLifeController {
 		LinkedList<OceanObject> oceanObjects = new LinkedList<OceanObject>();
 
 		Fish fish = new Fish(50, 50, "Fish",OceanLifeController.class.getResource("/res/fish (2).png"));
-		Bubble bubble = new Bubble(200, 768, "Bubble",OceanLifeController.class.getResource("/res/fish (2).png"));
-		Stone stone = new Stone(100, 0, "Stone",OceanLifeController.class.getResource("/res/fish (2).png"));
-		Plant plant = new Plant(500, 600, "Plant",OceanLifeController.class.getResource("/res/fish (2).png"));
+		Bubble bubble = new Bubble(200, 768, "Bubble",OceanLifeController.class.getResource("/res/bubble.png"));
+		Stone stone = new Stone(100, 0, "Stone",OceanLifeController.class.getResource("/res/stone.png"));
+		Plant plant = new Plant(500, 600, "Plant",OceanLifeController.class.getResource("/res/plant.png"));
 
 		oceanObjects.add(fish);
 		oceanObjects.add(bubble);
@@ -73,10 +64,14 @@ public class OceanLifeController {
 
 	public void addObject(OceanObject o) {
 		oi.addOceanObject(o);
+		gui.getUserPanel().repaint();
+		gui.getDrawPanel().repaint();
 	}
 
 	public void removeObject(int o) {
 		oi.removeOceanObject(o);
+		gui.getUserPanel().repaint();
+		gui.getDrawPanel().repaint();
 	}
 
 	/*

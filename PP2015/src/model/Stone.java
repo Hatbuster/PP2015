@@ -6,6 +6,11 @@ import java.util.Random;
 public class Stone extends OceanObject {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Creating a Stone using the Constructor of the Superclass
 	 * 
 	 * @param x

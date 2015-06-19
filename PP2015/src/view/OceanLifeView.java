@@ -4,7 +4,7 @@ import control.OceanLifeController;
 
 public class OceanLifeView {
 
-	OceanLifeController oceanLifeController;
-	OceanLifeGUI oceanLifeGUI;
+    OceanLifeController oceanLifeController;
+    OceanLifeGUI oceanLifeGUI;
 
 }

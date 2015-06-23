@@ -44,7 +44,7 @@ public class OceanLifeController {
 	ocean = new Ocean(width, depth, oceanObjects);
 	oi = ocean;
 
-	gui = new OceanLifeGUI(ocean, this);
+	gui = new OceanLifeGUI(this);
 
 	step();
 	step();
@@ -74,6 +74,14 @@ public class OceanLifeController {
 	oi.removeOceanObject(o);
 	gui.getUserPanel().repaint();
 	gui.getDrawPanel().repaint();
+    }
+    
+    public OceanInterface getOceanInterface() {
+    	return oi;
+    }
+    
+    public void setOceanInterface(OceanInterface oi) {
+    	this.oi = oi;
     }
 
     /*

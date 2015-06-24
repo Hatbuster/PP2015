@@ -20,11 +20,11 @@ public class Plant extends OceanObject {
      * Creating a Plant using the Constructor of the Superclass
      * 
      * @param x
-     *            The x-Position of the Bubble
+     *            The x-Position of the Plant
      * @param y
-     *            The y-Position of the Bubble
+     *            The y-Position of the Plant
      * @param name
-     *            The Name of the Bubble
+     *            The Name of the Plant
      */
     public Plant(int x, int y, String name, URL url) {
 	super(x, y, name, url);

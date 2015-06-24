@@ -3,6 +3,12 @@ package model;
 import java.net.URL;
 import java.util.Random;
 
+/**
+ * The Class for a Stone
+ * 
+ * @author Tobias
+ *
+ */
 public class Stone extends OceanObject {
 
     /**
@@ -14,11 +20,11 @@ public class Stone extends OceanObject {
      * Creating a Stone using the Constructor of the Superclass
      * 
      * @param x
-     *            The x-Position of the Bubble
+     *            The x-Position of the Stone
      * @param y
-     *            The y-Position of the Bubble
+     *            The y-Position of the Stone
      * @param name
-     *            The Name of the Bubble
+     *            The Name of the Stone
      */
     public Stone(int x, int y, String name, URL url) {
 	super(x, y, name, url);

@@ -10,6 +10,7 @@ import model.Ocean;
 import model.OceanInterface;
 import model.OceanObject;
 import model.Plant;
+import model.Shark;
 import model.Stone;
 
 public class OceanLifeController {
@@ -35,11 +36,14 @@ public class OceanLifeController {
 				OceanLifeController.class.getResource("/res/stone.png"));
 		Plant plant = new Plant(500, 600, "Plant",
 				OceanLifeController.class.getResource("/res/plant.png"));
+		Shark shark = new Shark(500, 600, "Shark",
+				OceanLifeController.class.getResource("/res/shark.png"));
 
 		oceanObjects.add(fish);
 		oceanObjects.add(bubble);
 		oceanObjects.add(stone);
 		oceanObjects.add(plant);
+		oceanObjects.add(shark);
 
 		ocean = new Ocean(width, depth, oceanObjects);
 		oi = ocean;

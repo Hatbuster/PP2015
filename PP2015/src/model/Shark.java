@@ -4,12 +4,12 @@ import java.net.URL;
 import java.util.Random;
 
 /**
- * The Class for a Fish
+ * The Class for a Shark
  * 
  * @author Tobias
  *
  */
-public class Fish extends OceanObject {
+public class Shark extends OceanObject {
 
     /**
 	 * 
@@ -20,18 +20,18 @@ public class Fish extends OceanObject {
      * Creating a Fish using the Constructor of the Superclass
      * 
      * @param x
-     *            The x-Position of the Fish
+     *            The x-Position of the Shark
      * @param y
-     *            The y-Position of the Fish
+     *            The y-Position of the Shark
      * @param name
-     *            The Name of the Fish
+     *            The Name of the Shark
      */
-    public Fish(int x, int y, String name, URL url) {
+    public Shark(int x, int y, String name, URL url) {
 	super(x, y, name, url);
     }
 
     /**
-     * Moves a Fish inside the Ocean, for now the Fish has a random move, moving
+     * Moves a Shark inside the Ocean, for now the Shark has a random move, moving
      * in a range limited from -30/30 and can't move outside the Ocean
      * 
      * @param width
@@ -40,14 +40,14 @@ public class Fish extends OceanObject {
      *            The Depth the Fish moves within
      */
     public void move(int width, int depth) {
-	// get fish position
+	// get Shark position
 	int xPos = super.getX();
 	int yPos = super.getY();
-	// randomize delta to move fish
+	// randomize delta to move Shark
 	Random rand = new Random();
 	int xMove = rand.nextInt(61) - 30;
 	int yMove = rand.nextInt(61) - 30;
-	// if new location is valid, move fish accordingly
+	// if new location is valid, move Shark accordingly
 	if ((xPos + xMove >= 0) && (xPos + xMove <= width)) {
 	    super.setX(xPos + xMove);
 	}

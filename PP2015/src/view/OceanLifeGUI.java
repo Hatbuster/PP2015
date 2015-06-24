@@ -20,6 +20,7 @@ import model.Fish;
 import model.OceanInterface;
 import model.OceanObject;
 import model.Plant;
+import model.Shark;
 import model.Stone;
 
 public class OceanLifeGUI {
@@ -98,6 +99,9 @@ public class OceanLifeGUI {
 						g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(),
 								o.getY(), null);
 					} else if (o.getClass().equals(Plant.class)) {
+						g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(),
+								o.getY(), null);
+					} else if (o.getClass().equals(Shark.class)) {
 						g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(),
 								o.getY(), null);
 					}

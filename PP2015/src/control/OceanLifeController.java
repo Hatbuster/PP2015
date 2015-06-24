@@ -45,7 +45,8 @@ public class OceanLifeController {
 	oi = ocean;
 
 	gui = new OceanLifeGUI(this);
-
+	System.out.println(gui);
+	
 	step();
 	step();
 

@@ -41,7 +41,7 @@ public class OceanLifeGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBackground(Color.black);
 
-		mbl = new MyButtonListener(oceanLifeController, this);
+		mbl = new MyButtonListener(oceanLifeController);
 
 		drawPanel = new DrawGUI(oi.getWidth(), oi.getDepth(), 300,
 				oi.getOceanObjects());

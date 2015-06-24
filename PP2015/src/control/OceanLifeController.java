@@ -83,6 +83,14 @@ public class OceanLifeController {
     public void setOceanInterface(OceanInterface oi) {
     	this.oi = oi;
     }
+    
+    public OceanLifeGUI getOceanLifeGui() {
+    	return gui;
+    }
+    
+    public void setOceanLifeGui(OceanLifeGUI gui) {
+    	this.gui = gui;
+    }
 
     /*
      * public void save() { // bring up a file chooser final JFileChooser

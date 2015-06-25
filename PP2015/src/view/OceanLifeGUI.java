@@ -213,6 +213,7 @@ public class OceanLifeGUI {
 			classBox.addItem("Bubble");
 			classBox.addItem("Stone");
 			classBox.addItem("Plant");
+			classBox.addItem("Shark");
 			this.add(classBox);
 
 			JButton addButton = new JButton("Add");

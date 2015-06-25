@@ -1,5 +1,6 @@
 package control;
 
+import java.awt.Rectangle;
 import java.util.LinkedList;
 
 import view.OceanLifeGUI;
@@ -59,10 +60,14 @@ public class OceanLifeController {
 	}
 
 	public void step() {
-		oi.move();
-		System.out.println(oi);
-		gui.getUserPanel().repaint();
-		gui.getDrawPanel().repaint();
+		synchronized (oi.getOcean()) {
+			oi.move();
+			checkCollision();
+			removeCollided();
+			System.out.println(oi);
+			gui.getUserPanel().repaint();
+			gui.getDrawPanel().repaint();
+		}
 	}
 
 	public void quit() {
@@ -70,15 +75,19 @@ public class OceanLifeController {
 	}
 
 	public void addObject(OceanObject o) {
-		oi.addOceanObject(o);
-		gui.getUserPanel().repaint();
-		gui.getDrawPanel().repaint();
+		synchronized (oi.getOcean()) {
+			oi.addOceanObject(o);
+			gui.getUserPanel().repaint();
+			gui.getDrawPanel().repaint();
+		}
 	}
 
 	public void removeObject(int o) {
-		oi.removeOceanObject(o);
-		gui.getUserPanel().repaint();
-		gui.getDrawPanel().repaint();
+		synchronized (oi.getOcean()) {
+			oi.removeOceanObject(o);
+			gui.getUserPanel().repaint();
+			gui.getDrawPanel().repaint();
+		}
 	}
 
 	public OceanInterface getOceanInterface() {
@@ -156,5 +165,52 @@ public class OceanLifeController {
 
 	public boolean getRunning() {
 		return running;
+	}
+
+	public void checkCollision() {
+		synchronized (oi.getOcean()) {
+			for (OceanObject o : oi.getOceanObjects()) {
+				if (o.getClass().equals(Shark.class)) {
+					int x = o.getX();
+					int y = o.getY();
+					int width = 0;
+					int height = 0;
+					width = o.getWidth();
+					height = o.getHeight();
+					Rectangle hitBox = new Rectangle(x, y, width, height);
+					for (OceanObject o2 : oi.getOceanObjects()) {
+						if (o2.getClass().equals(Fish.class)) {
+							int x2 = o2.getX();
+							int y2 = o2.getY();
+							int width2 = 0;
+							int height2 = 0;
+							width2 = o.getWidth();
+							height2 = o.getHeight();
+							Rectangle hitBox2 = new Rectangle(x2, y2, width2,
+									height2);
+							if (hitBox.intersects(hitBox2)) {
+								o2.setToRemove(true);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	public void removeCollided() {
+		synchronized (oi.getOcean()) {
+			LinkedList<OceanObject> remove = new LinkedList<>();
+			for (OceanObject o : oi.getOceanObjects()) {
+				if (o.isToRemove()) {
+					remove.add(o);
+				}
+			}
+			for (OceanObject o : remove) {
+				if (oi.getOceanObjects().contains(o)) {
+					oi.getOceanObjects().remove(o);
+				}
+			}
+		}
 	}
 }

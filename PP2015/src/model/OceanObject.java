@@ -1,7 +1,10 @@
 package model;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
+
+import javax.imageio.ImageIO;
 
 /**
  * The abstract Class which every Object in the Ocean is based on
@@ -28,7 +31,19 @@ public abstract class OceanObject implements Serializable {
      */
     private String name;
 
+    /**
+     * URL of the Image
+     */
     private URL pictureURL;
+    
+    private int width;
+    
+    private int height;
+    
+    /**
+     * Tells if the Object should be removed (collided with shark, out of oceanrange, etc...
+     */
+    private boolean toRemove;
 
     /**
      * Constructor creating an OceanObject
@@ -45,6 +60,14 @@ public abstract class OceanObject implements Serializable {
 	this.y = y;
 	this.name = name;
 	this.pictureURL = url;
+	try {
+		this.width = ImageIO.read(url).getWidth();
+		this.height = ImageIO.read(url).getHeight();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
     }
 
     /**
@@ -118,12 +141,48 @@ public abstract class OceanObject implements Serializable {
 	this.name = name;
     }
 
+    /**
+     * 
+     * @return The URL of the Image an OceanObject has
+     */
     public URL getPictureURL() {
 	return pictureURL;
     }
 
+    /**
+     * Set The URL of the Image an OceanObject has
+     * 
+     * @param pcitureURL
+     * 					 The URL of the Image an OceanObject should have
+     */
     public void setPictureURL(URL pictureURL) {
 	this.pictureURL = pictureURL;
     }
-
+    
+    public int getWidth() {
+    	return width;
+    }
+    
+    public int getHeight() {
+    	return height;
+    }
+    
+    /**
+     * 
+     * @return Boolean Flag if this Object should be removed
+     */
+    public boolean isToRemove() {
+    	return toRemove;
+    }
+    
+    /**
+     * Sets boolean Flag if this Object should be removed
+     * 
+     * @return remove
+     * 					flag the Object, so it gets removed
+     */
+    public void setToRemove(boolean remove) {
+    	toRemove = remove;
+    }
+    
 }

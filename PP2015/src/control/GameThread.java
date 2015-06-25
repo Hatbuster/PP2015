@@ -4,7 +4,7 @@ public class GameThread extends Thread {
 
 	OceanLifeController olc;
 
-	private final long FPS = 30; //Calculations|step() per Seconds 
+	private final long CPS = 30; // Calculations|step() per Seconds
 
 	public GameThread(OceanLifeController olc) {
 		this.olc = olc;
@@ -19,20 +19,18 @@ public class GameThread extends Thread {
 				e1.printStackTrace();
 			}
 			while (olc.getRunning()) {
-				synchronized (olc.getOceanInterface().getOcean()) {
-					long startTime = System.currentTimeMillis();
-					System.out.println("Next Step by Thread");
-					olc.step();
-					try {
-						long endTime = System.currentTimeMillis();
-						long sleepTime = 1000 / FPS - (endTime - startTime);
-						System.out.println(sleepTime);
-						if (sleepTime > 0) {
-							Thread.sleep(sleepTime);
-						}
-					} catch (InterruptedException ex) {
-
+				long startTime = System.currentTimeMillis();
+				// move all Objects
+				olc.step();
+				try {
+					long endTime = System.currentTimeMillis();
+					long sleepTime = 1000 / CPS - (endTime - startTime);
+					System.out.println("GameThread going to sleep for:" + sleepTime+"ms");
+					if (sleepTime > 0) {
+						Thread.sleep(sleepTime);
 					}
+				} catch (InterruptedException ex) {
+
 				}
 			}
 		}

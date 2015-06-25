@@ -9,6 +9,7 @@ import model.Bubble;
 import model.Fish;
 import model.OceanObject;
 import model.Plant;
+import model.Shark;
 import model.Stone;
 import view.OceanLifeGUI;
 
@@ -86,6 +87,10 @@ public class MyButtonListener implements ActionListener {
 		case "Stone":
 			oceanObject = new Stone(x, y, name,
 					MyButtonListener.class.getResource("/res/stone.png"));
+			break;
+		case "Shark":
+			oceanObject = new Shark(x, y, name,
+					MyButtonListener.class.getResource("/res/Shark.png"));
 			break;
 		}
 		// add the Object to Ocean

@@ -46,11 +46,11 @@ public class MyButtonListener implements ActionListener {
 	}
 
 	private void save() {
-		// olc.save();
+		olc.save();
 	}
 
 	private void load() {
-		// olc.load();
+		olc.load();
 	}
 
 	private void start() {

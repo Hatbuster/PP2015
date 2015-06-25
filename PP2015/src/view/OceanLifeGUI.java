@@ -69,6 +69,10 @@ public class OceanLifeGUI {
 	public void setUserPanel(UserGUI userPanel) {
 		this.userPanel = userPanel;
 	}
+	
+	public void setOceanInterface(OceanInterface oi) {
+		this.oi = oi;
+	}
 
 	public class DrawGUI extends JPanel {
 
@@ -78,6 +82,10 @@ public class OceanLifeGUI {
 		public DrawGUI(int width, int depth, int margin,
 				LinkedList<OceanObject> oceanObjects) {
 			this.setBounds(margin, 0, width, depth);
+			this.oceanObjects = oceanObjects;
+		}
+		
+		public void setOceanObjects(LinkedList<OceanObject> oceanObjects) {
 			this.oceanObjects = oceanObjects;
 		}
 

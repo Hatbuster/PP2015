@@ -36,11 +36,11 @@ public class OceanLifeGUI {
 	frame = new JFrame();
 
 	frame.setLayout(null);
-	frame.setSize(oi.getWidth(), oi.getDepth());
+	frame.setSize(oi.getWidth()+300, oi.getDepth());
 	frame.setTitle("Ocean Life");
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame.setBackground(Color.black);
+	frame.setResizable(false);
 
 	mbl = new MyButtonListener(oceanLifeController, this);
 

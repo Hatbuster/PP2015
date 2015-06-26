@@ -52,9 +52,11 @@ public class Shark extends OceanObject {
 	yPos = yPos + yVel;
 	if (xPos <= 0 || xPos + super.getWidth() >= width) {
 	    xVel = -xVel;
+	    xPos = xPos + xVel;
 	}
 	if (yPos <= 0 || yPos + super.getHeight() >= depth) {
 	    yVel = -yVel;
+	    yPos = yPos + yVel;
 	}
 	if (Math.abs(xVel) > maxVel) {
 	    xVel = xVel / 2;

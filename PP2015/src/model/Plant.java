@@ -39,20 +39,11 @@ public class Plant extends OceanObject {
      *            The Depth the Plant moves within
      */
     public void move(int width, int depth) {
-	// get plant position
-	int xPos = super.getX();
 	int yPos = super.getY();
-	// randomize delta to move plant
-	Random rand = new Random();
-	int xMove = rand.nextInt(16) - 8;
-	int yMove = rand.nextInt(16) - 8;
-	// if new location is valid, move plant accordingly
-	if ((xPos + xMove >= 0) && (xPos + xMove <= width)) {
-	    super.setX(xPos + xMove);
+	if (yPos + super.getHeight() < depth){
+	    yPos = yPos + 3;
 	}
-	if ((yPos + yMove >= 0) && (yPos + yMove <= depth)) {
-	    super.setY(yPos + yMove);
-	}
+	super.setY(yPos);
     }
 
     /**

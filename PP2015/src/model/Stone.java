@@ -40,20 +40,11 @@ public class Stone extends OceanObject {
      *            The Depth the Stone moves within
      */
     public void move(int width, int depth) {
-	// get stone position
-	int xPos = super.getX();
 	int yPos = super.getY();
-	// randomize delta to move stone
-	Random rand = new Random();
-	int yMove = 5;
-	int xMove = rand.nextInt(10) - 5;
-	// if new location is valid, move stone accordingly
-	if ((xPos + xMove >= 0) && (xPos + xMove <= width)) {
-	    super.setX(xPos + xMove);
+	if (yPos + super.getHeight() < depth){
+	    yPos = yPos + 3;
 	}
-	if ((yPos + yMove <= depth)) {
-	    super.setY(yPos + yMove);
-	}
+	super.setY(yPos);
     }
 
     /**

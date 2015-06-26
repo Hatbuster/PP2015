@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.LinkedList;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -138,7 +139,8 @@ public class OceanLifeGUI {
 		return Integer.parseInt(x_coord.getText());
 	    } catch (NumberFormatException e) {
 		// return a default value when no value is given
-		return 200;
+		Random rand = new Random();
+		return rand.nextInt(oi.getWidth());
 	    }
 	}
 
@@ -147,7 +149,8 @@ public class OceanLifeGUI {
 		return Integer.parseInt(y_coord.getText());
 	    } catch (NumberFormatException e) {
 		// return a default value when no value is given
-		return 200;
+		Random rand = new Random();
+		return rand.nextInt(oi.getDepth());
 	    }
 	}
 

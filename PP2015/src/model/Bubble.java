@@ -39,12 +39,14 @@ public class Bubble extends OceanObject {
      *            The Depth the Bubble moves within
      */
     public void move(int width, int depth) {
-	if (this.getY() < 0) {
-	    this.setToRemove(true);
-	    // Spawn a new Bubble
+	int yPos = super.getY();
+	if (yPos + super.getHeight() > 0) {
+	    yPos = yPos - 5;
 	} else {
-	    this.setY(this.getY() - 50);
+	    super.setToRemove(true);
 	}
+	super.setY(yPos);
+
     }
 
     /**

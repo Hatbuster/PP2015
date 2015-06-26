@@ -259,6 +259,7 @@ public class OceanLifeController {
 	    for (OceanObject o : remove) {
 		if (oi.getOceanObjects().contains(o)) {
 		    oi.getOceanObjects().remove(o);
+		    gui.getUserPanel().removeOceanObject(o);
 		}
 	    }
 	}

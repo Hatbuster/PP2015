@@ -268,6 +268,10 @@ public class OceanLifeGUI {
 	public void removeSelectedObject() {
 	    oceanObjectBox.removeItemAt(oceanObjectBox.getSelectedIndex());
 	}
+	
+	public void removeOceanObject(OceanObject victim){
+	    oceanObjectBox.removeItem(victim);
+	}
 
 	public int getSelectedObject() {
 	    return oceanObjectBox.getSelectedIndex();

@@ -99,7 +99,7 @@ public class MyButtonListener implements ActionListener {
 		break;
 	    case "Shark":
 		oceanObject = new Shark(x, y, name,
-			MyButtonListener.class.getResource("/res/Shark.png"));
+			MyButtonListener.class.getResource("/res/shark.png"));
 		break;
 	    }
 	    // add the Object to Ocean

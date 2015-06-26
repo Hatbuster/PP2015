@@ -27,6 +27,14 @@ public abstract class OceanObject implements Serializable {
 	 */
 	private int y;
 	/**
+	 * X-Velocity of an OceanObject
+	 */
+	private int xVelocity;
+	/**
+	 * Y-Velocity of an OceanObject
+	 */
+	private int yVelocity;
+	/**
 	 * Name of an OceanObject
 	 */
 	private String name;
@@ -112,6 +120,42 @@ public abstract class OceanObject implements Serializable {
 	 */
 	public void setX(int x) {
 		this.x = x;
+	}
+	/**
+	 * Gets the X-Velocity an OceanObject moves with
+	 * 
+	 * @return xVelocity
+	 * 		The X-Velocity the Object should be at
+	 */
+	public int getxVelocity() {
+	    return xVelocity;
+	}
+	/**
+	 * Sets the X-Velocity to the given value
+	 * 
+	 * @param xVelocity
+	 * 		The X-Velocity the Object moves with
+	 */
+	public void setxVelocity(int xVelocity) {
+	    this.xVelocity = xVelocity;
+	}
+	/**
+	 * Gets the Y-Velocity an OceanObject moves with
+	 * 
+	 * @return yVelocity
+	 * 		The Y-Velocity the Object should be at
+	 */
+	public int getyVelocity() {
+	    return yVelocity;
+	}
+	/**
+	 * Sets the Y-Velocity to the given value
+	 * 
+	 * @param yVelocity
+	 * 		The Y-Velocity the Object moves with
+	 */
+	public void setyVelocity(int yVelocity) {
+	    this.yVelocity = yVelocity;
 	}
 
 	/**

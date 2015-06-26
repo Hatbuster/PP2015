@@ -40,20 +40,32 @@ public class Fish extends OceanObject {
      *            The Depth the Fish moves within
      */
     public void move(int width, int depth) {
-	// get fish position
 	int xPos = super.getX();
 	int yPos = super.getY();
-	// randomize delta to move fish
+	int xVel = super.getxVelocity();
+	int yVel = super.getyVelocity();
+	int maxVel = 8;
 	Random rand = new Random();
-	int xMove = rand.nextInt(61) - 30;
-	int yMove = rand.nextInt(61) - 30;
-	// if new location is valid, move fish accordingly
-	if ((xPos + xMove >= 0) && (xPos + xMove <= width)) {
-	    super.setX(xPos + xMove);
+	xVel = xVel + rand.nextInt(5) - 2;
+	yVel = yVel + rand.nextInt(5) - 2;
+	xPos = xPos + xVel;
+	yPos = yPos + yVel;
+	if (xPos <= 0 || xPos >= width) {
+	    xVel = -xVel;
 	}
-	if ((yPos + yMove >= 0) && (yPos + yMove <= depth)) {
-	    super.setY(yPos + yMove);
+	if (yPos <= 0 || yPos >= depth) {
+	    yVel = -yVel;
 	}
+	if (Math.abs(xVel) > maxVel) {
+	    xVel = xVel / 2;
+	}
+	if (Math.abs(yVel) > maxVel) {
+	    yVel = yVel / 2;
+	}
+	super.setX(xPos);
+	super.setY(yPos);
+	super.setxVelocity(xVel);
+	super.setyVelocity(yVel);
     }
 
     /**

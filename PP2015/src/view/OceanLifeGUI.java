@@ -140,7 +140,7 @@ public class OceanLifeGUI {
 	    } catch (NumberFormatException e) {
 		// return a default value when no value is given
 		Random rand = new Random();
-		return rand.nextInt(oi.getWidth());
+		return rand.nextInt(oi.getWidth() - 200);
 	    }
 	}
 
@@ -150,7 +150,7 @@ public class OceanLifeGUI {
 	    } catch (NumberFormatException e) {
 		// return a default value when no value is given
 		Random rand = new Random();
-		return rand.nextInt(oi.getDepth());
+		return rand.nextInt(oi.getDepth() - 100);
 	    }
 	}
 

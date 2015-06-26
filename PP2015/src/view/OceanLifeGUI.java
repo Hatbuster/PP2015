@@ -36,7 +36,7 @@ public class OceanLifeGUI {
 	frame = new JFrame();
 
 	frame.setLayout(null);
-	frame.setSize(oi.getWidth()+300, oi.getDepth());
+	frame.setSize(oi.getWidth() + 300, oi.getDepth() + 30);
 	frame.setTitle("Ocean Life");
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,7 +97,8 @@ public class OceanLifeGUI {
 		g2.drawImage(ImageIO.read(OceanLifeGUI.class
 			.getResource("/res/Ocean.png")), 0, 0, null);
 		for (OceanObject o : oceanObjects) {
-		    //g2.drawRect(o.getX(), o.getY(), o.getWidth(), o.getHeight());
+		    // g2.drawRect(o.getX(), o.getY(), o.getWidth(),
+		    // o.getHeight());
 		    if (o.getClass().equals(Fish.class)) {
 			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(),
 				o.getY(), null);

@@ -31,8 +31,8 @@ public class Shark extends OceanObject {
     }
 
     /**
-     * Moves a Shark inside the Ocean, for now the Shark has a random move, moving
-     * in a range limited from -30/30 and can't move outside the Ocean
+     * Moves a Shark inside the Ocean, for now the Shark has a random move,
+     * moving in a range limited from -30/30 and can't move outside the Ocean
      * 
      * @param width
      *            The Width the Fish moves within

@@ -68,8 +68,8 @@ public abstract class OceanObject implements Serializable {
 		this.name = name;
 		this.pictureURL = url;
 		try {
-			this.width = ImageIO.read(url).getWidth();
-			this.height = ImageIO.read(url).getHeight();
+	    this.width = ImageIO.read(url).getWidth();
+	    this.height = ImageIO.read(url).getHeight();
 		} catch (IOException e) {
 			// If no image could be loaded the hitbox is represented by a
 			// 50x50pixel square

@@ -6,7 +6,7 @@ public class PaintThread extends Thread {
 
     OceanLifeGUI gui;
 
-    private final long FPS = 60; // repaints per Seconds
+    private final long FPS = 30; // repaints per Seconds
 
     public PaintThread(OceanLifeGUI gui) {
 	this.gui = gui;

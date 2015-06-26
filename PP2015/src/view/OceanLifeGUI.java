@@ -89,6 +89,7 @@ public class OceanLifeGUI {
 	    this.oceanObjects = oceanObjects;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void paintComponent(Graphics g) {
 	    super.paintComponent(g);
@@ -96,7 +97,9 @@ public class OceanLifeGUI {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.drawImage(ImageIO.read(OceanLifeGUI.class
 			.getResource("/res/Ocean.png")), 0, 0, null);
-		for (OceanObject o : oceanObjects) {
+		//clone list to avoid working on a changing list (will abort repaint)
+		LinkedList<OceanObject> oceanObjectsCopy = (LinkedList<OceanObject>) oceanObjects.clone();
+		for (OceanObject o : oceanObjectsCopy) {
 		    // g2.drawRect(o.getX(), o.getY(), o.getWidth(),
 		    // o.getHeight());
 		    if (o.getClass().equals(Fish.class)) {
@@ -118,7 +121,7 @@ public class OceanLifeGUI {
 		}
 
 	    } catch (Exception e) {
-
+		System.out.println ("paintComponent failed");
 	    }
 	}
     }

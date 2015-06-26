@@ -51,7 +51,6 @@ public class OceanLifeGUI {
 
 	frame.add(drawPanel);
 	frame.add(userPanel);
-	frame.repaint();
 
     }
 

@@ -37,35 +37,18 @@ public class OceanLifeController {
 	int depth = 768;
 
 	LinkedList<OceanObject> oceanObjects = new LinkedList<OceanObject>();
-
-	Fish fish = new Fish(50, 50, "Fish",
-		OceanLifeController.class.getResource("/res/fish (2).png"));
-	Bubble bubble = new Bubble(200, 768, "Bubble",
-		OceanLifeController.class.getResource("/res/bubble.png"));
-	Stone stone = new Stone(100, 0, "Stone",
-		OceanLifeController.class.getResource("/res/stone.png"));
-	Plant plant = new Plant(500, 600, "Plant",
-		OceanLifeController.class.getResource("/res/plant.png"));
-	Shark shark = new Shark(500, 600, "Shark",
-		OceanLifeController.class.getResource("/res/shark.png"));
-
-	oceanObjects.add(fish);
-	oceanObjects.add(bubble);
-	oceanObjects.add(stone);
-	oceanObjects.add(plant);
-	oceanObjects.add(shark);
-
+	
 	ocean = new Ocean(width, depth, oceanObjects);
 	oi = ocean;
 
 	gui = new OceanLifeGUI(this);
 	System.out.println(gui);
 
-	step();
-	step();
-
-	GameThread thread = new GameThread(this);
-	thread.start();
+	GameThread gameThread = new GameThread(this);
+	gameThread.start();
+	
+	PaintThread paintThread = new PaintThread(gui);
+	paintThread.start();
     }
 
     public void step() {
@@ -74,8 +57,6 @@ public class OceanLifeController {
 	    checkCollision();
 	    removeCollided();
 	    System.out.println(oi);
-	    gui.getUserPanel().repaint();
-	    gui.getDrawPanel().repaint();
 	}
     }
 
@@ -86,16 +67,12 @@ public class OceanLifeController {
     public void addObject(OceanObject o) {
 	synchronized (oi.getOcean()) {
 	    oi.addOceanObject(o);
-	    gui.getUserPanel().repaint();
-	    gui.getDrawPanel().repaint();
 	}
     }
 
     public void removeObject(int o) {
 	synchronized (oi.getOcean()) {
 	    oi.removeOceanObject(o);
-	    gui.getUserPanel().repaint();
-	    gui.getDrawPanel().repaint();
 	}
     }
 

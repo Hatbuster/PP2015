@@ -234,8 +234,8 @@ public class OceanLifeController {
 			    int y2 = o2.getY();
 			    int width2 = 0;
 			    int height2 = 0;
-			    width2 = o.getWidth();
-			    height2 = o.getHeight();
+			    width2 = o2.getWidth();
+			    height2 = o2.getHeight();
 			    Rectangle hitBox2 = new Rectangle(x2, y2, width2,
 				    height2);
 			    if (hitBox.intersects(hitBox2)) {

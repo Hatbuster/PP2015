@@ -50,10 +50,10 @@ public class Fish extends OceanObject {
 	yVel = yVel + rand.nextInt(5) - 2;
 	xPos = xPos + xVel;
 	yPos = yPos + yVel;
-	if (xPos <= 0 || xPos >= width) {
+	if (xPos <= 0 || xPos + super.getWidth() >= width) {
 	    xVel = -xVel;
 	}
-	if (yPos <= 0 || yPos >= depth) {
+	if (yPos <= 0 || yPos + super.getHeight() >= depth) {
 	    yVel = -yVel;
 	}
 	if (Math.abs(xVel) > maxVel) {

@@ -97,6 +97,7 @@ public class OceanLifeGUI {
 		g2.drawImage(ImageIO.read(OceanLifeGUI.class
 			.getResource("/res/Ocean.png")), 0, 0, null);
 		for (OceanObject o : oceanObjects) {
+		    //g2.drawRect(o.getX(), o.getY(), o.getWidth(), o.getHeight());
 		    if (o.getClass().equals(Fish.class)) {
 			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(),
 				o.getY(), null);

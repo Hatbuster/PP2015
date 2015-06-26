@@ -41,7 +41,7 @@ public class Bubble extends OceanObject {
     public void move(int width, int depth) {
 	int yPos = super.getY();
 	if (yPos + super.getHeight() > 0) {
-	    yPos = yPos - 5;
+	    yPos = yPos - 1;
 	} else {
 	    super.setToRemove(true);
 	}

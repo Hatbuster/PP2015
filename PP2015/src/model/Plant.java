@@ -31,7 +31,7 @@ public class Plant extends OceanObject {
     }
 
     /**
-     * Moves a Plant inside the Ocean, a Plant moves slowly in any Direction
+     * Moves a Plant inside the Ocean, a Plant slowly descends
      * 
      * @param width
      *            The Width the Plant moves within

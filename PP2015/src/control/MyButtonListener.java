@@ -69,33 +69,43 @@ public class MyButtonListener implements ActionListener {
 	String name = gui.getUserPanel().getName();
 	int x = gui.getUserPanel().getX_Coord();
 	int y = gui.getUserPanel().getY_Coord();
-	// Create an OceanObject with given arguments
-	OceanObject oceanObject = null;
-	switch (gui.getUserPanel().getSelectedClass()) {
-	case "Fish":
-	    oceanObject = new Fish(x, y, name,
-		    MyButtonListener.class.getResource("/res/fish (2).png"));
-	    break;
-	case "Bubble":
-	    oceanObject = new Bubble(x, y, name,
-		    MyButtonListener.class.getResource("/res/bubble.png"));
-	    break;
-	case "Plant":
-	    oceanObject = new Plant(x, y, name,
-		    MyButtonListener.class.getResource("/res/plant.png"));
-	    break;
-	case "Stone":
-	    oceanObject = new Stone(x, y, name,
-		    MyButtonListener.class.getResource("/res/stone.png"));
-	    break;
-	case "Shark":
-	    oceanObject = new Shark(x, y, name,
-		    MyButtonListener.class.getResource("/res/Shark.png"));
-	    break;
+	int width = olc.getOceanInterface().getWidth();
+	int depth = olc.getOceanInterface().getDepth();
+	if (x < 0 || x > width || y < 0 || y > depth) {
+	    JOptionPane optionPane = new JOptionPane();
+	    JOptionPane.showMessageDialog(optionPane,
+		    "Cannot create OceanObject outside of ocean boundaries.",
+		    "Out of Bounds", JOptionPane.ERROR_MESSAGE);
+
+	} else {
+	    // Create an OceanObject with given arguments
+	    OceanObject oceanObject = null;
+	    switch (gui.getUserPanel().getSelectedClass()) {
+	    case "Fish":
+		oceanObject = new Fish(x, y, name,
+			MyButtonListener.class.getResource("/res/fish (2).png"));
+		break;
+	    case "Bubble":
+		oceanObject = new Bubble(x, y, name,
+			MyButtonListener.class.getResource("/res/bubble.png"));
+		break;
+	    case "Plant":
+		oceanObject = new Plant(x, y, name,
+			MyButtonListener.class.getResource("/res/plant.png"));
+		break;
+	    case "Stone":
+		oceanObject = new Stone(x, y, name,
+			MyButtonListener.class.getResource("/res/stone.png"));
+		break;
+	    case "Shark":
+		oceanObject = new Shark(x, y, name,
+			MyButtonListener.class.getResource("/res/Shark.png"));
+		break;
+	    }
+	    // add the Object to Ocean
+	    olc.addObject(oceanObject);
+	    gui.getUserPanel().addObject(oceanObject);
 	}
-	// add the Object to Ocean
-	olc.addObject(oceanObject);
-	gui.getUserPanel().addObject(oceanObject);
     }
 
     /**

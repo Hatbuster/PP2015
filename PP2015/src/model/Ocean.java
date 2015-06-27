@@ -10,9 +10,10 @@ import java.util.LinkedList;
  *
  */
 public class Ocean implements OceanInterface, Serializable {
+
     /**
-	 * 
-	 */
+     * Default UID
+     */
     private static final long serialVersionUID = 1L;
     /**
      * The Width of an Ocean
@@ -60,7 +61,7 @@ public class Ocean implements OceanInterface, Serializable {
      *            The OceanObject to remove
      */
     public void removeObject(OceanObject o) {
-	oceanObjects.remove(o);
+	this.oceanObjects.remove(o);
     }
 
     /**
@@ -86,36 +87,38 @@ public class Ocean implements OceanInterface, Serializable {
     }
 
     /**
+     * Returns the Width of the Ocean
      * 
-     * @return The Width of an Ocean
+     * @return width returns the Width of the Ocean
      */
     public int getWidth() {
 	return width;
     }
 
     /**
-     * Sets the Width of an Ocean
+     * Sets the Width of the Ocean
      * 
      * @param width
-     *            The Width an Ocean should have
+     *            The Width the Ocean should have
      */
     public void setWidth(int width) {
 	this.width = width;
     }
 
     /**
+     * Returns the Depth of the Ocean
      * 
-     * @return The Depth of an Ocean
+     * @return depth returns the depth of the Ocean
      */
     public int getDepth() {
 	return depth;
     }
 
     /**
-     * Sets the Depth of an Ocean
+     * Sets the Depth of the Ocean
      * 
      * @param depth
-     *            The Depth an Ocean should have
+     *            The Depth the Ocean should have
      */
     public void setDepth(int depth) {
 	this.depth = depth;
@@ -123,14 +126,14 @@ public class Ocean implements OceanInterface, Serializable {
 
     /**
      * 
-     * @return The LinkedList containing all Elements of an Ocean
+     * @return The LinkedList containing all Elements of the Ocean
      */
     public LinkedList<OceanObject> getOceanObjects() {
 	return oceanObjects;
     }
 
     /**
-     * Sets the LinkedList containing all Elements of an Ocean
+     * Sets the LinkedList containing all Elements of the Ocean
      * 
      * @param oceanObjects
      *            The List of Elements the Ocean should contain
@@ -142,7 +145,7 @@ public class Ocean implements OceanInterface, Serializable {
     /**
      * Adds an OceanObject to an Ocean
      * 
-     * @param The
+     * @param oceanObject
      *            Object to add
      */
     public void addOceanObject(OceanObject oceanObject) {
@@ -152,13 +155,19 @@ public class Ocean implements OceanInterface, Serializable {
     /**
      * Removes an OceanObject from an Ocean
      * 
-     * @param Integer
-     *            of the Object to remove
+     * @param oceanObject
+     *            Integer of the Object to remove
      */
     public void removeOceanObject(int oceanObject) {
 	this.oceanObjects.remove(oceanObject);
     }
 
+    /**
+     * Returns the Ocean
+     * 
+     * @return ocean
+     * 		returns the Ocean
+     */
     public Ocean getOcean() {
 	return this;
     }

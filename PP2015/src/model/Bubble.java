@@ -11,8 +11,8 @@ import java.net.URL;
 public class Bubble extends OceanObject {
 
     /**
-	 * 
-	 */
+     * Default UID
+     */
     private static final long serialVersionUID = 1L;
 
     /**

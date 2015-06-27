@@ -12,8 +12,8 @@ import java.util.Random;
 public class Fish extends OceanObject {
 
     /**
-	 * 
-	 */
+     * Default UID
+     */
     private static final long serialVersionUID = 1L;
 
     /**

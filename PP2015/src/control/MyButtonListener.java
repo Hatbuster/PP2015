@@ -13,16 +13,39 @@ import model.Shark;
 import model.Stone;
 import view.OceanLifeGUI;
 
+/**
+ * Class that handles all Buttons in the UserGUI class
+ * 
+ * @author Tobias
+ *
+ */
 public class MyButtonListener implements ActionListener {
 
+    /**
+     * Instance of the OceanLifeController the GameThrad is working on
+     */
     OceanLifeController olc;
+    /**
+     * Instance of the OceanLifeGUI the GameThrad is working on
+     */
     OceanLifeGUI gui;
 
+    /**
+     * 
+     * @param c
+     * 		Instance of OceanLifeController the MyButtonListener should be working on
+     * @param gui
+     * 		Instance of OceanLifeGUI the MyButtonListener should be working on
+     */
     public MyButtonListener(OceanLifeController c, OceanLifeGUI gui) {
 	olc = c;
 	this.gui = gui;
     }
 
+    /**
+     * Whenever a Button is pressed this method checks which command the Button has 
+     * and calls the equivalent method
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 	String event = e.getActionCommand();
@@ -45,18 +68,30 @@ public class MyButtonListener implements ActionListener {
 	}
     }
 
+    /**
+     * Saves Game
+     */
     private void save() {
 	olc.save();
     }
 
+    /**
+     * Loads Game
+     */
     private void load() {
 	olc.load();
     }
 
+    /**
+     * Starts Game
+     */
     private void start() {
 	olc.startGameLoop();
     }
 
+    /**
+     * Pauses Game
+     */
     private void stop() {
 	olc.stopGameLoop();
     }
@@ -124,12 +159,15 @@ public class MyButtonListener implements ActionListener {
     }
 
     /**
-     * Calls a single move() on every OceanObejct
+     * Calls a single move() on every OceanObejct, checks for Collision,...
      */
     private void step() {
 	olc.step();
     }
 
+    /**
+     * Game is quit
+     */
     private void quit() {
 	olc.quit();
     }

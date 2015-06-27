@@ -8,17 +8,40 @@ import javax.swing.JFrame;
 
 import control.OceanLifeController;
 
+/**
+ * Class the creates a JFrame which gets opened when you press the "Quit" Button
+ * 
+ * @author Tobias
+ *
+ */
 public class QuitFrame extends JFrame {
 
+    /**
+     * Default UID
+     */
     private static final long serialVersionUID = 1L;
+    /**
+     * ButtonListener for the Buttons
+     */
     private QuitFrameListener qfl;
-    @SuppressWarnings("unused")
+    /**
+     * Instance of the OceanLifeController to work with
+     */
     private OceanLifeController olc;
 
+    /**
+     * Constructor creating the QuitFrame
+     * @param width
+     * 		The Width of the Ocean
+     * @param depth
+     * 		The Depth of the Ocean
+     * @param olc
+     * 		The OceanLifeController
+     */
     public QuitFrame(int width, int depth, OceanLifeController olc) {
 	this.setLayout(null);
 	this.setSize(380, 100);
-	this.setLocation(width / 2 - 380 / 2, depth / 2 - 100 / 2);
+	this.setLocation((width + 300) / 2 - 380 / 2, depth / 2 - 100 / 2);
 	this.setTitle("Quit?");
 	this.setVisible(true);
 	this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -45,8 +68,18 @@ public class QuitFrame extends JFrame {
 	this.add(quitButton);
     }
 
+    /**
+     * Class for ButtonHandling in the QuitFrame
+     * 
+     * @author Tobias
+     *
+     */
     class QuitFrameListener implements ActionListener {
 
+	/**
+	     * Whenever a Button is pressed this method checks which command the Button has 
+	     * and calls the equivalent method
+	     */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	    String event = e.getActionCommand();
@@ -59,16 +92,25 @@ public class QuitFrame extends JFrame {
 	    }
 	}
 
+	/**
+	 * Saves the Game and exits the Game after it
+	 */
 	private void save() {
 
 	    olc.save();
 	    System.exit(0);
 	}
 
+	/**
+	 * Closes the QuitFrame
+	 */
 	private void cancel() {
 	    dispose();
 	}
 
+	/**
+	 * Quits the Game
+	 */
 	private void quitConfirmed() {
 	    System.exit(0);
 	}

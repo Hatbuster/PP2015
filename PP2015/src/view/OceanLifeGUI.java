@@ -24,6 +24,12 @@ import model.Plant;
 import model.Shark;
 import model.Stone;
 
+/**
+ * 
+ * 
+ * @author Tobias
+ *
+ */
 public class OceanLifeGUI {
 
     private JFrame frame;

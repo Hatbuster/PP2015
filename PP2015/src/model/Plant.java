@@ -1,7 +1,6 @@
 package model;
 
 import java.net.URL;
-import java.util.Random;
 
 /**
  * The Class for a Plant
@@ -12,8 +11,8 @@ import java.util.Random;
 public class Plant extends OceanObject {
 
     /**
-	 * 
-	 */
+     * Default UID
+     */
     private static final long serialVersionUID = 1L;
 
     /**

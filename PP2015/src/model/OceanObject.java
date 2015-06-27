@@ -105,8 +105,10 @@ public abstract class OceanObject implements Serializable {
 	}
 
 	/**
+	 * Returns the X-Coordinate of an OceanObject
 	 * 
-	 * @return The X-Coordinate an OceanObject is at
+	 * @return x
+	 * 		The X-Coordinate an OceanObject is at
 	 */
 	public int getX() {
 		return x;
@@ -159,8 +161,9 @@ public abstract class OceanObject implements Serializable {
 	}
 
 	/**
+	 * Returns the Y-Coordinate of the OceanObject
 	 * 
-	 * @return The Y-Coordinate an OceanObject is at
+	 * @return The Y-Coordinate the OceanObject is at
 	 */
 	public int getY() {
 		return y;
@@ -177,8 +180,10 @@ public abstract class OceanObject implements Serializable {
 	}
 
 	/**
+	 * Returns the Name of an OceanObject
 	 * 
-	 * @return The Name an OceanObject has
+	 * @return name
+	 * 		The Name an OceanObject has
 	 */
 	public String getName() {
 		return name;
@@ -195,8 +200,10 @@ public abstract class OceanObject implements Serializable {
 	}
 
 	/**
+	 * Returns the Picture URL the OceanObject has
 	 * 
-	 * @return The URL of the Image an OceanObject has
+	 * @return pictureURL
+	 *		The URL of the Image an OceanObject has
 	 */
 	public URL getPictureURL() {
 		return pictureURL;
@@ -213,8 +220,10 @@ public abstract class OceanObject implements Serializable {
 	}
 
 	/**
+	 * Returns the Width of an OceanObject
 	 * 
-	 * @return Width of an OceanObject
+	 * @return width
+	 * 		Width of an OceanObject
 	 * 					
 	 */
 	public int getWidth() {
@@ -222,16 +231,20 @@ public abstract class OceanObject implements Serializable {
 	}
 
 	/**
+	 * Returns the Height of an OceanObject
 	 * 
-	 * @return Height of an OceanObject
+	 * @return height
+	 * 		Height of an OceanObject
 	 */
 	public int getHeight() {
 		return height;
 	}
 
 	/**
+	 * Returns a boolean flag whether the Object should be removed or not
 	 * 
-	 * @return Boolean Flag if this Object should be removed
+	 * @return toRemove
+	 * 		Boolean Flag if this Object should be removed
 	 */
 	public boolean isToRemove() {
 		return toRemove;
@@ -240,7 +253,8 @@ public abstract class OceanObject implements Serializable {
 	/**
 	 * Sets boolean Flag if this Object should be removed
 	 * 
-	 * @param remove flag the Object, so it gets removed
+	 * @param remove 
+	 * 		flag the Object, so it gets removed
 	 */
 	public void setToRemove(boolean remove) {
 		toRemove = remove;

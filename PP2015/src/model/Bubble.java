@@ -24,6 +24,8 @@ public class Bubble extends OceanObject {
      *            The y-Position of the Bubble
      * @param name
      *            The Name of the Bubble
+     * @param url
+     * 		  The URL of the Picture the Bubble should have
      */
     public Bubble(int x, int y, String name, URL url) {
 	super(x, y, name, url);

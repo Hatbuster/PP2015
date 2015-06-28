@@ -44,7 +44,7 @@ public class OceanLifeController {
 
     /**
      * Initiates everything - Creates Ocean, GUI, GameThread and PaintThread
-     * @throws InterruptedException
+     * @throws InterruptedException -
      */
     public void start() throws InterruptedException {
 	Ocean ocean;

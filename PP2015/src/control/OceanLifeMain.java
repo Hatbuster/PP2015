@@ -12,7 +12,7 @@ public class OceanLifeMain {
      * main-method, creates an OceanLifeController and calling start()
      * @param args
      * 		not used
-     * @throws InterruptedException
+     * @throws InterruptedException -
      */
     public static void main(String[] args) throws InterruptedException {
 

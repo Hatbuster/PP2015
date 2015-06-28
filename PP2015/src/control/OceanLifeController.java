@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import view.OceanLifeGUI;
+import view.PaintThread;
 import view.QuitFrame;
 import model.Fish;
 import model.Ocean;

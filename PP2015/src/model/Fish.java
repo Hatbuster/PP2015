@@ -71,6 +71,8 @@ public class Fish extends OceanObject {
     }
 
     /**
+     * Returns a String containing the name and the position of an OceanObject
+     * 
      * @return A String containing the name and the position of an OceanObject,
      *         by calling method of Superclass
      */

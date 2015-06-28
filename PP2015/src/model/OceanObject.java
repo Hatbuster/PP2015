@@ -98,7 +98,9 @@ public abstract class OceanObject implements Serializable {
 	public abstract void move(int width, int depth);
 
 	/**
-	 * @return A String containing the name and the position of an OceanObject
+	 * Returns a String containing the name and the position of an OceanObject
+	 * 
+	 * @return String, containing the name and the position of an OceanObject
 	 */
 	public String toString() {
 		return "Name = " + name + "; position: x = " + x + "; y = " + y + "\n";

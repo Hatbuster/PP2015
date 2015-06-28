@@ -65,9 +65,11 @@ public class Ocean implements OceanInterface, Serializable {
     }
 
     /**
-     * 
-     * @return A String containing a formatted list of all Names and Positions
+     * Returns a String containing a formatted list of all Names and Positions
      *         in the List
+     * 
+     * @return ret
+     * 		A String containing a formatted list of all Names and Positions in the List
      */
     public String oceanObjectsToString() {
 	String ret = "";
@@ -78,8 +80,9 @@ public class Ocean implements OceanInterface, Serializable {
     }
 
     /**
+     * Returns a String containing Width, Depth and all Elements in the Ocean
      * 
-     * @return A String containing Width, Depth and all Elements in the Ocean
+     * @return String, containing Width, Depth and all Elements in the Ocean
      */
     public String toString() {
 	return "Ocean: Width: " + this.width + ", Depth: " + this.depth
@@ -125,6 +128,7 @@ public class Ocean implements OceanInterface, Serializable {
     }
 
     /**
+     * Return a LinkedList containing all Elements of the Ocean
      * 
      * @return The LinkedList containing all Elements of the Ocean
      */

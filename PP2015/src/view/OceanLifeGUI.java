@@ -25,25 +25,46 @@ import model.Shark;
 import model.Stone;
 
 /**
- * 
+ * Class that draw the Ocean and the Input-Panel
  * 
  * @author Tobias
  *
  */
 public class OceanLifeGUI {
 
+    /**
+     * The Frame to be drawn
+     */
     private JFrame frame;
+    /**
+     * The Panel where the Ocean and its Objects get drawn
+     */
     private DrawGUI drawPanel;
+    /**
+     * The Panel where the User can do Inputs
+     */
     private UserGUI userPanel;
-    private OceanInterface oi;
+    /**
+     * The Interface for Access to the Ocean
+     */
+    private OceanInterface oceanInterface;
+    /**
+     * The ButtonListener handling the Buttons in the UserGUI
+     */
     MyButtonListener mbl;
 
+    /**
+     * Constructor for creating a OceanLifeGUI
+     * 
+     * @param oceanLifeController
+     * 			The Instance of the OceanLifeController the GUI should be working with
+     */
     public OceanLifeGUI(OceanLifeController oceanLifeController) {
-	oi = oceanLifeController.getOceanInterface();
+	oceanInterface = oceanLifeController.getOceanInterface();
 	frame = new JFrame();
 
 	frame.setLayout(null);
-	frame.setSize(oi.getWidth() + 300, oi.getDepth() + 30);
+	frame.setSize(oceanInterface.getWidth() + 300, oceanInterface.getDepth() + 30);
 	frame.setTitle("Ocean Life");
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,50 +72,113 @@ public class OceanLifeGUI {
 
 	mbl = new MyButtonListener(oceanLifeController, this);
 
-	drawPanel = new DrawGUI(oi.getWidth(), oi.getDepth(), 300,
-		oi.getOceanObjects());
-	userPanel = new UserGUI(300, oi.getDepth(), mbl);
+	drawPanel = new DrawGUI(oceanInterface.getWidth(), oceanInterface.getDepth(), 300,
+		oceanInterface.getOceanObjects());
+	userPanel = new UserGUI(300, oceanInterface.getDepth(), mbl);
 
 	frame.add(drawPanel);
 	frame.add(userPanel);
 
     }
 
+    /**
+     * Returns the DrawGUI
+     * 
+     * @return drawPanel
+     * 		returns the Panel where the Ocean and Objects get drawn
+     */
     public DrawGUI getDrawPanel() {
 	return drawPanel;
     }
 
+    /**
+     * Sets the DrawGUI to the given DrawGUI
+     * 
+     * @param drawPanel
+     * 			the DrawGUI the OceanLifeGUI should have
+     */
     public void setDrawPanel(DrawGUI drawPanel) {
 	this.drawPanel = drawPanel;
     }
 
+    /**
+     * Returns the UserGUI
+     * 
+     * @return userPanel
+     * 		returns the Panel the User can interact with
+     */
     public UserGUI getUserPanel() {
 	return userPanel;
     }
 
+    /**
+     * Sets the UserGUI to the given UserGUI
+     * 
+     * @param userPanel
+     * 			the UserGUI the OceanLifeGUI should have
+     */
     public void setUserPanel(UserGUI userPanel) {
 	this.userPanel = userPanel;
     }
 
-    public void setOceanInterface(OceanInterface oi) {
-	this.oi = oi;
+    /**
+     * Sets the OceanInterface to the given OceanInterface
+     * 
+     * @param oceanInterface
+     * 			the OceanInterface the OceanLifeGUI should have
+     */
+    public void setOceanInterface(OceanInterface oceanInterface) {
+	this.oceanInterface = oceanInterface;
     }
 
+    /**
+     * Class(Panel) where the Ocean gets drawn
+     * 
+     * @author Tobias
+     *
+     */
     public class DrawGUI extends JPanel {
 
+	/**
+	 * Default UID
+	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * LinkedList containing all OceanObjects
+	 */
 	private LinkedList<OceanObject> oceanObjects;
 
+	/**
+	 * Constructor creating a DrawGUI
+	 * 
+	 * @param width
+	 * 		The Width of the Ocean
+	 * @param depth
+	 * 		The Depth of the Ocean
+	 * @param margin
+	 * 		The Width of the UserPanel
+	 * @param oceanObjects
+	 * 		The LinkedList containing all OceanObjects
+	 */
 	public DrawGUI(int width, int depth, int margin,
 		LinkedList<OceanObject> oceanObjects) {
 	    this.setBounds(margin, 0, width, depth);
 	    this.oceanObjects = oceanObjects;
 	}
 
+	/**
+	 * Sets the LinkedList containing all OceanObjects to the given LinkedList
+	 * 
+	 * @param oceanObjects
+	 * 			The LinkedList the DrawGUI should work with
+	 */
 	public void setOceanObjects(LinkedList<OceanObject> oceanObjects) {
 	    this.oceanObjects = oceanObjects;
 	}
 
+	/**
+	 * Paints the Background and all Objects in the Ocean, gets called whenever repaint() is called
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void paintComponent(Graphics g) {
@@ -132,36 +216,75 @@ public class OceanLifeGUI {
 	}
     }
 
+    /**
+     * Class(Panel) the User interacts with
+     * 
+     * @author Tobias
+     *
+     */
     public class UserGUI extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * TextField where the X-Coordinate is entered for creating OceanObjects
+	 */
 	private JTextField x_coord;
+	/**
+	 * TextField where the Y-Coordinate is entered for creating OceanObjects
+	 */
 	private JTextField y_coord;
+	/**
+	 * TextField where the Name is entered for creating OceanObjects
+	 */
 	private JTextField nameField;
+	/**
+	 * ComboBox where the desired Object to create is taken from
+	 */
 	private JComboBox<String> classBox;
+	/**
+	 * ComboBox containing all OceanObjects of the Ocean
+	 */
 	private JComboBox<OceanObject> oceanObjectBox;
 
+	/**
+	 * Returns the X-Coordinate where the OceanObject should spawn
+	 * 
+	 * @return x
+	 * 		returns the X-Coordinate of the OceanObject
+	 */
 	public int getX_Coord() {
 	    try {
 		return Integer.parseInt(x_coord.getText());
 	    } catch (NumberFormatException e) {
 		// return a default value when no value is given
 		Random rand = new Random();
-		return rand.nextInt(oi.getWidth() - 200);
+		return rand.nextInt(oceanInterface.getWidth() - 200);
 	    }
 	}
 
+	/**
+	 * Returns the Y-Coordinate where the OceanObject should spawn
+	 * 
+	 * @return y
+	 * 		returns the Y-Coordinate of the OceanObject
+	 */
 	public int getY_Coord() {
 	    try {
 		return Integer.parseInt(y_coord.getText());
 	    } catch (NumberFormatException e) {
 		// return a default value when no value is given
 		Random rand = new Random();
-		return rand.nextInt(oi.getDepth() - 100);
+		return rand.nextInt(oceanInterface.getDepth() - 100);
 	    }
 	}
 
+	/**
+	 * Returns the Name the OceanObject should have
+	 * 
+	 * @return name
+	 * 		returns the Name of the OceanObject
+	 */
 	public String getName() {
 	    if (nameField.getText().equals("")) {
 		// If no name given, name the Object like the class it is
@@ -171,10 +294,26 @@ public class OceanLifeGUI {
 	    }
 	}
 
+	/**
+	 * Returns the Class the OceanObject should have
+	 * 
+	 * @return class
+	 * 		returns the Class of the OceanObject
+	 */
 	public String getSelectedClass() {
 	    return (String) classBox.getSelectedItem();
 	}
 
+	/**
+	 * Constructor for creating a UserGUI
+	 * 
+	 * @param width
+	 * 		The Width of the UserGUI
+	 * @param depth
+	 * 		The Depth of the UserGUI
+	 * @param mbl
+	 * 		The MyButtonListener that handles the Buttonclicks
+	 */
 	public UserGUI(int width, int depth, MyButtonListener mbl) {
 	    this.setLayout(null);
 	    this.setBounds(0, 0, width, depth);
@@ -245,7 +384,7 @@ public class OceanLifeGUI {
 
 	    oceanObjectBox = new JComboBox<OceanObject>();
 	    oceanObjectBox.setBounds(10, 210, 280, 25);
-	    for (OceanObject o : oi.getOceanObjects()) {
+	    for (OceanObject o : oceanInterface.getOceanObjects()) {
 		oceanObjectBox.addItem(o);
 	    }
 	    this.add(oceanObjectBox);
@@ -269,22 +408,49 @@ public class OceanLifeGUI {
 	    this.add(quitButton);
 	}
 
+	/**
+	 * Adds an Object to the List of OceanObject
+	 * 
+	 * @param oceanObject
+	 * 		The OceanObject to add
+	 */
 	public void addObject(OceanObject oceanObject) {
 	    oceanObjectBox.addItem(oceanObject);
 	}
 
+	/**
+	 * Removes the OceanObject which is selected in the ComboBox
+	 */
 	public void removeSelectedObject() {
 	    oceanObjectBox.removeItemAt(oceanObjectBox.getSelectedIndex());
 	}
 	
+	/**
+	 * Removes the given OceanObject from the List
+	 * 
+	 * @param victim
+	 * ^		The OceanObject to remove
+	 */
 	public void removeOceanObject(OceanObject victim){
 	    oceanObjectBox.removeItem(victim);
 	}
 
+	/**
+	 * Returns the Index of the selected OceanObject of the ComboBox
+	 * 
+	 * @return index
+	 * 		The index of the OceanObject selected
+	 */
 	public int getSelectedObject() {
 	    return oceanObjectBox.getSelectedIndex();
 	}
 
+	/**
+	 * Sets the LinkedList of all OceanObjects to the given List
+	 * 
+	 * @param oceanObjects
+	 * 		The LinkedList the GUI should be working with
+	 */
 	public void setOceanObjects(LinkedList<OceanObject> oceanObjects) {
 	    oceanObjectBox.removeAllItems();
 	    for (OceanObject o : oceanObjects) {

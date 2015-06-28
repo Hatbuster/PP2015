@@ -25,6 +25,8 @@ public class Fish extends OceanObject {
      *            The y-Position of the Fish
      * @param name
      *            The Name of the Fish
+     * @param url
+     * 		  The URL of the Picture the Bubble should have
      */
     public Fish(int x, int y, String name, URL url) {
 	super(x, y, name, url);

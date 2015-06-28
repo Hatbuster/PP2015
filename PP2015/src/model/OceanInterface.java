@@ -54,16 +54,16 @@ public interface OceanInterface {
     /**
      * Adds an OceanObject to an Ocean
      * 
-     * @param The
-     *            Object to add
+     * @param oceanObject
+     * 		The Object to add
      */
     public void addOceanObject(OceanObject oceanObject);
 
     /**
      * Removes an OceanObject from an Ocean
      * 
-     * @param Integer
-     *            of the Object to remove
+     * @param oceanObject
+     * 		Integer of the Object to remove
      */
     public void removeOceanObject(int oceanObject);
 

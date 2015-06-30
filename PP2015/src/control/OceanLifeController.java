@@ -214,8 +214,8 @@ public class OceanLifeController {
 			oceanInterface = newOcean;
 			gui.getUserPanel()
 				.setOceanObjects(oceanInterface.getOceanObjects());
-			gui.getDrawPanel()
-				.setOceanObjects(oceanInterface.getOceanObjects());
+			//gui.getDrawPanel()
+			//	.setOceanObjects(oceanInterface.getOceanObjects());
 			gui.getUserPanel().repaint();
 			gui.getDrawPanel().repaint();
 		    }

@@ -47,7 +47,7 @@ public class OceanLifeGUI {
     /**
      * The Interface for Access to the Ocean
      */
-    private OceanInterface oceanInterface;
+    private OceanLifeController oceanLifeController;
     /**
      * The ButtonListener handling the Buttons in the UserGUI
      */
@@ -60,11 +60,13 @@ public class OceanLifeGUI {
      * 			The Instance of the OceanLifeController the GUI should be working with
      */
     public OceanLifeGUI(OceanLifeController oceanLifeController) {
-	oceanInterface = oceanLifeController.getOceanInterface();
+	this.oceanLifeController = oceanLifeController;
 	frame = new JFrame();
 
+	int width = oceanLifeController.getOceanInterface().getWidth();
+	int depth = oceanLifeController.getOceanInterface().getDepth();
 	frame.setLayout(null);
-	frame.setSize(oceanInterface.getWidth() + 300, oceanInterface.getDepth() + 30);
+	frame.setSize(width + 300, depth + 30);
 	frame.setTitle("Ocean Life");
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,9 +74,8 @@ public class OceanLifeGUI {
 
 	mbl = new MyButtonListener(oceanLifeController);
 
-	drawPanel = new DrawGUI(oceanInterface.getWidth(), oceanInterface.getDepth(), 300,
-		oceanInterface.getOceanObjects());
-	userPanel = new UserGUI(300, oceanInterface.getDepth(), mbl);
+	drawPanel = new DrawGUI(width, depth, 300,oceanLifeController);
+	userPanel = new UserGUI(300, depth, mbl);
 
 	frame.add(drawPanel);
 	frame.add(userPanel);
@@ -121,15 +122,6 @@ public class OceanLifeGUI {
 	this.userPanel = userPanel;
     }
 
-    /**
-     * Sets the OceanInterface to the given OceanInterface
-     * 
-     * @param oceanInterface
-     * 			the OceanInterface the OceanLifeGUI should have
-     */
-    public void setOceanInterface(OceanInterface oceanInterface) {
-	this.oceanInterface = oceanInterface;
-    }
 
     /**
      * Class(Panel) where the Ocean gets drawn
@@ -146,7 +138,7 @@ public class OceanLifeGUI {
 	/**
 	 * LinkedList containing all OceanObjects
 	 */
-	private LinkedList<OceanObject> oceanObjects;
+	private OceanLifeController oceanLifeController;
 
 	/**
 	 * Constructor creating a DrawGUI
@@ -157,23 +149,13 @@ public class OceanLifeGUI {
 	 * 		The Depth of the Ocean
 	 * @param margin
 	 * 		The Width of the UserPanel
-	 * @param oceanObjects
-	 * 		The LinkedList containing all OceanObjects
+	 * @param oceanLifeController
+	 * 		The Instance of the OceanLifeController
 	 */
 	public DrawGUI(int width, int depth, int margin,
-		LinkedList<OceanObject> oceanObjects) {
+		OceanLifeController oceanLifeController) {
 	    this.setBounds(margin, 0, width, depth);
-	    this.oceanObjects = oceanObjects;
-	}
-
-	/**
-	 * Sets the LinkedList containing all OceanObjects to the given LinkedList
-	 * 
-	 * @param oceanObjects
-	 * 			The LinkedList the DrawGUI should work with
-	 */
-	public void setOceanObjects(LinkedList<OceanObject> oceanObjects) {
-	    this.oceanObjects = oceanObjects;
+	    this.oceanLifeController = oceanLifeController;
 	}
 
 	/**
@@ -188,7 +170,7 @@ public class OceanLifeGUI {
 		g2.drawImage(ImageIO.read(OceanLifeGUI.class
 			.getResource("/res/Ocean.png")), 0, 0, null);
 		//clone list to avoid working on a changing list (will abort repaint)
-		LinkedList<OceanObject> oceanObjectsCopy = (LinkedList<OceanObject>) oceanObjects.clone();
+		LinkedList<OceanObject> oceanObjectsCopy = (LinkedList<OceanObject>) oceanLifeController.getOceanInterface().getOceanObjects().clone();
 		for (OceanObject o : oceanObjectsCopy) {
 		    // g2.drawRect(o.getX(), o.getY(), o.getWidth(),
 		    // o.getHeight());
@@ -259,7 +241,7 @@ public class OceanLifeGUI {
 	    } catch (NumberFormatException e) {
 		// return a default value when no value is given
 		Random rand = new Random();
-		return rand.nextInt(oceanInterface.getWidth() - 200);
+		return rand.nextInt(oceanLifeController.getOceanInterface().getWidth() - 200);
 	    }
 	}
 
@@ -275,7 +257,7 @@ public class OceanLifeGUI {
 	    } catch (NumberFormatException e) {
 		// return a default value when no value is given
 		Random rand = new Random();
-		return rand.nextInt(oceanInterface.getDepth() - 100);
+		return rand.nextInt(oceanLifeController.getOceanInterface().getDepth() - 100);
 	    }
 	}
 
@@ -384,7 +366,7 @@ public class OceanLifeGUI {
 
 	    oceanObjectBox = new JComboBox<OceanObject>();
 	    oceanObjectBox.setBounds(10, 210, 280, 25);
-	    for (OceanObject o : oceanInterface.getOceanObjects()) {
+	    for (OceanObject o : oceanLifeController.getOceanInterface().getOceanObjects()) {
 		oceanObjectBox.addItem(o);
 	    }
 	    this.add(oceanObjectBox);

@@ -29,8 +29,6 @@ public class MyButtonListener implements ActionListener {
      * 
      * @param c
      * 		Instance of OceanLifeController the MyButtonListener should be working on
-     * @param gui
-     * 		Instance of OceanLifeGUI the MyButtonListener should be working on
      */
     public MyButtonListener(OceanLifeController c) {
 	olc = c;

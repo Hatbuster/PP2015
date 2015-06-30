@@ -70,7 +70,7 @@ public class OceanLifeGUI {
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setResizable(false);
 
-	mbl = new MyButtonListener(oceanLifeController, this);
+	mbl = new MyButtonListener(oceanLifeController);
 
 	drawPanel = new DrawGUI(oceanInterface.getWidth(), oceanInterface.getDepth(), 300,
 		oceanInterface.getOceanObjects());

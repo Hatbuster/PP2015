@@ -11,7 +11,6 @@ import model.OceanObject;
 import model.Plant;
 import model.Shark;
 import model.Stone;
-import view.OceanLifeGUI;
 
 /**
  * Class that handles all Buttons in the UserGUI class
@@ -25,10 +24,6 @@ public class MyButtonListener implements ActionListener {
      * Instance of the OceanLifeController the GameThrad is working on
      */
     OceanLifeController olc;
-    /**
-     * Instance of the OceanLifeGUI the GameThrad is working on
-     */
-    OceanLifeGUI gui;
 
     /**
      * 
@@ -37,9 +32,8 @@ public class MyButtonListener implements ActionListener {
      * @param gui
      * 		Instance of OceanLifeGUI the MyButtonListener should be working on
      */
-    public MyButtonListener(OceanLifeController c, OceanLifeGUI gui) {
+    public MyButtonListener(OceanLifeController c) {
 	olc = c;
-	this.gui = gui;
     }
 
     /**
@@ -101,9 +95,9 @@ public class MyButtonListener implements ActionListener {
      */
     private void add() {
 	// Get name x- and y-coordinates
-	String name = gui.getUserPanel().getName();
-	int x = gui.getUserPanel().getX_Coord();
-	int y = gui.getUserPanel().getY_Coord();
+	String name = olc.getOceanLifeGui().getUserPanel().getName();
+	int x = olc.getOceanLifeGui().getUserPanel().getX_Coord();
+	int y = olc.getOceanLifeGui().getUserPanel().getY_Coord();
 	int width = olc.getOceanInterface().getWidth();
 	int depth = olc.getOceanInterface().getDepth();
 	if (x < 0 || x > width || y < 0 || y > depth) {
@@ -115,7 +109,7 @@ public class MyButtonListener implements ActionListener {
 	} else {
 	    // Create an OceanObject with given arguments
 	    OceanObject oceanObject = null;
-	    switch (gui.getUserPanel().getSelectedClass()) {
+	    switch (olc.getOceanLifeGui().getUserPanel().getSelectedClass()) {
 	    case "Fish":
 		oceanObject = new Fish(x, y, name,
 			MyButtonListener.class.getResource("/res/fish (2).png"));
@@ -139,7 +133,7 @@ public class MyButtonListener implements ActionListener {
 	    }
 	    // add the Object to Ocean
 	    olc.addObject(oceanObject);
-	    gui.getUserPanel().addObject(oceanObject);
+	    olc.getOceanLifeGui().getUserPanel().addObject(oceanObject);
 	}
     }
 
@@ -148,8 +142,8 @@ public class MyButtonListener implements ActionListener {
      */
     private void remove() {
 	try {
-	    olc.removeObject(gui.getUserPanel().getSelectedObject());
-	    gui.getUserPanel().removeSelectedObject();
+	    olc.removeObject(olc.getOceanLifeGui().getUserPanel().getSelectedObject());
+	    olc.getOceanLifeGui().getUserPanel().removeSelectedObject();
 	} catch (IndexOutOfBoundsException ex) {
 	    JOptionPane optionPane = new JOptionPane();
 	    JOptionPane.showMessageDialog(optionPane,

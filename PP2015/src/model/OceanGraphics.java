@@ -11,22 +11,7 @@ public class OceanGraphics {
 	    sharkImage, stoneImage, oceanImage;
 
     public OceanGraphics() {
-	try {
-	    fishImage = ImageIO.read(OceanGraphics.class
-		    .getResource("/res/fish (2).png"));
-	    bubbleImage = ImageIO.read(OceanGraphics.class
-		    .getResource("/res/bubble.png"));
-	    plantImage = ImageIO.read(OceanGraphics.class
-		    .getResource("/res/plant.png"));
-	    sharkImage = ImageIO.read(OceanGraphics.class
-		    .getResource("/res/shark.png"));
-	    stoneImage = ImageIO.read(OceanGraphics.class
-		    .getResource("/res/stone.png"));
-	    oceanImage = ImageIO.read(OceanGraphics.class
-		    .getResource("/res/Ocean.png"));
-	} catch (IOException e) {
-	    // Do stuff to see for user, like JOptionPane
-	}
+
     }
 
     public static BufferedImage getImage(OceanObject oceanObject) {
@@ -48,6 +33,25 @@ public class OceanGraphics {
 
     public static BufferedImage getOceanImage() {
 	return oceanImage;
+    }
+
+    public static void loadAllImages() {
+	try {
+	    fishImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/fish (2).png"));
+	    bubbleImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/bubble.png"));
+	    plantImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/plant.png"));
+	    sharkImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/shark.png"));
+	    stoneImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/stone.png"));
+	    oceanImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/Ocean.png"));
+	} catch (IOException e) {
+	    // Do stuff to see for user, like JOptionPane
+	}
     }
 
 }

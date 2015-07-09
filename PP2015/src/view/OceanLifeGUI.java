@@ -18,7 +18,7 @@ import control.MyButtonListener;
 import control.OceanLifeController;
 import model.Bubble;
 import model.Fish;
-import model.OceanInterface;
+import model.OceanGraphics;
 import model.OceanObject;
 import model.Plant;
 import model.Shark;
@@ -139,6 +139,8 @@ public class OceanLifeGUI {
 	 * LinkedList containing all OceanObjects
 	 */
 	private OceanLifeController oceanLifeController;
+	
+	OceanGraphics oceanGraphics;
 
 	/**
 	 * Constructor creating a DrawGUI
@@ -156,6 +158,7 @@ public class OceanLifeGUI {
 		OceanLifeController oceanLifeController) {
 	    this.setBounds(margin, 0, width, depth);
 	    this.oceanLifeController = oceanLifeController;
+	    OceanGraphics.loadAllImages();
 	}
 
 	/**
@@ -167,8 +170,7 @@ public class OceanLifeGUI {
 	    super.paintComponent(g);
 	    try {
 		Graphics2D g2 = (Graphics2D) g;
-		g2.drawImage(ImageIO.read(OceanLifeGUI.class
-			.getResource("/res/Ocean.png")), 0, 0, null);
+		g2.drawImage(OceanGraphics.getOceanImage(), 0, 0, null);
 		//clone list to avoid working on a changing list (will abort repaint)
 		LinkedList<OceanObject> oceanObjectsCopy = (LinkedList<OceanObject>) oceanLifeController.getOceanInterface().getOceanObjects().clone();
 		for (OceanObject o : oceanObjectsCopy) {

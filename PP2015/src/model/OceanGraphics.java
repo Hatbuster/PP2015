@@ -10,25 +10,30 @@ public class OceanGraphics {
     private static BufferedImage fishImage, bubbleImage, plantImage,
 	    sharkImage, stoneImage, oceanImage;
 
+    private static boolean loaded;
+
     public OceanGraphics() {
 
     }
 
     public static BufferedImage getImage(OceanObject oceanObject) {
-	if (oceanObject.getClass().equals(Fish.class)) {
-	    return fishImage;
-	} else if (oceanObject.getClass().equals(Bubble.class)) {
-	    return bubbleImage;
-	} else if (oceanObject.getClass().equals(Plant.class)) {
-	    return plantImage;
-	} else if (oceanObject.getClass().equals(Shark.class)) {
-	    return sharkImage;
-	} else if (oceanObject.getClass().equals(Stone.class)) {
-	    return stoneImage;
+	if (loaded) {
+	    if (oceanObject.getClass().equals(Fish.class)) {
+		return fishImage;
+	    } else if (oceanObject.getClass().equals(Bubble.class)) {
+		return bubbleImage;
+	    } else if (oceanObject.getClass().equals(Plant.class)) {
+		return plantImage;
+	    } else if (oceanObject.getClass().equals(Shark.class)) {
+		return sharkImage;
+	    } else if (oceanObject.getClass().equals(Stone.class)) {
+		return stoneImage;
+	    } else {
+		return null;
+	    }
 	} else {
 	    return null;
 	}
-
     }
 
     public static BufferedImage getOceanImage() {
@@ -49,8 +54,10 @@ public class OceanGraphics {
 		    .getResource("/res/stone.png"));
 	    oceanImage = ImageIO.read(OceanGraphics.class
 		    .getResource("/res/Ocean.png"));
+	    loaded = true;
 	} catch (IOException e) {
-	    // Do stuff to see for user, like JOptionPane
+	    loaded = false;
+	    // output
 	}
     }
 

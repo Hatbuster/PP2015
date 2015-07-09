@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 import java.util.LinkedList;
 import java.util.Random;
 
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -177,19 +176,19 @@ public class OceanLifeGUI {
 		    // g2.drawRect(o.getX(), o.getY(), o.getWidth(),
 		    // o.getHeight());
 		    if (o.getClass().equals(Fish.class)) {
-			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(),
+			g2.drawImage(OceanGraphics.getImage(o), o.getX(),
 				o.getY(), null);
 		    } else if (o.getClass().equals(Bubble.class)) {
-			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(),
+			g2.drawImage(OceanGraphics.getImage(o), o.getX(),
 				o.getY(), null);
 		    } else if (o.getClass().equals(Stone.class)) {
-			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(),
+			g2.drawImage(OceanGraphics.getImage(o), o.getX(),
 				o.getY(), null);
 		    } else if (o.getClass().equals(Plant.class)) {
-			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(),
+			g2.drawImage(OceanGraphics.getImage(o), o.getX(),
 				o.getY(), null);
 		    } else if (o.getClass().equals(Shark.class)) {
-			g2.drawImage(ImageIO.read(o.getPictureURL()), o.getX(),
+			g2.drawImage(OceanGraphics.getImage(o), o.getX(),
 				o.getY(), null);
 		    }
 		}

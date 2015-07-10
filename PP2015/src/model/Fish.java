@@ -1,6 +1,5 @@
 package model;
 
-import java.net.URL;
 import java.util.Random;
 
 /**
@@ -25,11 +24,11 @@ public class Fish extends OceanObject {
      *            The y-Position of the Fish
      * @param name
      *            The Name of the Fish
-     * @param url
-     * 		  The URL of the Picture the Bubble should have
      */
-    public Fish(int x, int y, String name, URL url) {
-	super(x, y, name, url);
+    public Fish(int x, int y, String name) {
+	super(x, y, name);
+	super.setWidth(100);
+	super.setHeight(66);
     }
 
     /**

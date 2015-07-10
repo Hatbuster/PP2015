@@ -1,10 +1,6 @@
 package model;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
 
 /**
  * The abstract Class which every Object in the Ocean is based on
@@ -38,11 +34,6 @@ public abstract class OceanObject implements Serializable {
 	 * Name of an OceanObject
 	 */
 	private String name;
-
-	/**
-	 * URL of the Image
-	 */
-	private URL pictureURL;
 	/**
 	 * Width of an OceanObject
 	 */
@@ -70,21 +61,10 @@ public abstract class OceanObject implements Serializable {
 	 * @param url
 	 * 			  The URL of the image the Object should have
 	 */
-	public OceanObject(int x, int y, String name, URL url) {
+	public OceanObject(int x, int y, String name) {
 		this.x = x;
 		this.y = y;
 		this.name = name;
-		this.pictureURL = url;
-		try {
-	    this.width = ImageIO.read(url).getWidth();
-	    this.height = ImageIO.read(url).getHeight();
-		} catch (IOException e) {
-			// If no image could be loaded the hitbox is represented by a
-			// 50x50pixel square
-			this.width = 50;
-			this.height = 50;
-		}
-
 	}
 
 	/**
@@ -202,26 +182,6 @@ public abstract class OceanObject implements Serializable {
 	}
 
 	/**
-	 * Returns the Picture URL the OceanObject has
-	 * 
-	 * @return pictureURL
-	 *		The URL of the Image an OceanObject has
-	 */
-	public URL getPictureURL() {
-		return pictureURL;
-	}
-
-	/**
-	 * Set The URL of the Image an OceanObject has
-	 * 
-	 * @param pictureURL
-	 *            The URL of the Image an OceanObject should have
-	 */
-	public void setPictureURL(URL pictureURL) {
-		this.pictureURL = pictureURL;
-	}
-
-	/**
 	 * Returns the Width of an OceanObject
 	 * 
 	 * @return width
@@ -260,6 +220,14 @@ public abstract class OceanObject implements Serializable {
 	 */
 	public void setToRemove(boolean remove) {
 		toRemove = remove;
+	}
+	
+	public void setWidth(int width) {
+	    this.width = width;
+	}
+	
+	public void setHeight(int height) {
+	    this.height = height;
 	}
 
 }

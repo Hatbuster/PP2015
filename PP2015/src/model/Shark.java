@@ -1,6 +1,5 @@
 package model;
 
-import java.net.URL;
 import java.util.Random;
 
 /**
@@ -25,11 +24,11 @@ public class Shark extends OceanObject {
      *            The y-Position of the Shark
      * @param name
      *            The Name of the Shark
-     * @param url
-     * 		  The URL of the Picture the Bubble should have
      */
-    public Shark(int x, int y, String name, URL url) {
-	super(x, y, name, url);
+    public Shark(int x, int y, String name) {
+	super(x, y, name);
+	super.setWidth(184);
+	super.setHeight(92);
     }
 
     /**

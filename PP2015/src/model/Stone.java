@@ -1,7 +1,5 @@
 package model;
 
-import java.net.URL;
-
 /**
  * The Class for a Stone
  * 
@@ -24,11 +22,11 @@ public class Stone extends OceanObject {
      *            The y-Position of the Stone
      * @param name
      *            The Name of the Stone
-     * @param url
-     * 		  The URL of the Picture the Bubble should have
      */
-    public Stone(int x, int y, String name, URL url) {
-	super(x, y, name, url);
+    public Stone(int x, int y, String name) {
+	super(x, y, name);
+	super.setWidth(45);
+	super.setHeight(22);
     }
 
     /**

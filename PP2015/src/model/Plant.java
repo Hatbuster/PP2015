@@ -1,7 +1,5 @@
 package model;
 
-import java.net.URL;
-
 /**
  * The Class for a Plant
  * 
@@ -24,11 +22,11 @@ public class Plant extends OceanObject {
      *            The y-Position of the Plant
      * @param name
      *            The Name of the Plant
-     * @param url
-     * 		  The URL of the Picture the Bubble should have
      */
-    public Plant(int x, int y, String name, URL url) {
-	super(x, y, name, url);
+    public Plant(int x, int y, String name) {
+	super(x, y, name);
+	super.setWidth(80);
+	super.setHeight(80);
     }
 
     /**

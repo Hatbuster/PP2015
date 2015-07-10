@@ -109,24 +109,19 @@ public class MyButtonListener implements ActionListener {
 	    OceanObject oceanObject = null;
 	    switch (olc.getOceanLifeGui().getUserPanel().getSelectedClass()) {
 	    case "Fish":
-		oceanObject = new Fish(x, y, name,
-			MyButtonListener.class.getResource("/res/fish (2).png"));
+		oceanObject = new Fish(x, y, name);
 		break;
 	    case "Bubble":
-		oceanObject = new Bubble(x, y, name,
-			MyButtonListener.class.getResource("/res/bubble.png"));
+		oceanObject = new Bubble(x, y, name);
 		break;
 	    case "Plant":
-		oceanObject = new Plant(x, y, name,
-			MyButtonListener.class.getResource("/res/plant.png"));
+		oceanObject = new Plant(x, y, name);
 		break;
 	    case "Stone":
-		oceanObject = new Stone(x, y, name,
-			MyButtonListener.class.getResource("/res/stone.png"));
+		oceanObject = new Stone(x, y, name);
 		break;
 	    case "Shark":
-		oceanObject = new Shark(x, y, name,
-			MyButtonListener.class.getResource("/res/shark.png"));
+		oceanObject = new Shark(x, y, name);
 		break;
 	    }
 	    // add the Object to Ocean

@@ -58,8 +58,6 @@ public abstract class OceanObject implements Serializable {
 	 *            The Y-Coordinate the Object should have
 	 * @param name
 	 *            The Name the Object should have
-	 * @param url
-	 * 			  The URL of the image the Object should have
 	 */
 	public OceanObject(int x, int y, String name) {
 		this.x = x;

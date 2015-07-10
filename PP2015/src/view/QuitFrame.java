@@ -31,12 +31,13 @@ public class QuitFrame extends JFrame {
 
     /**
      * Constructor creating the QuitFrame
+     * 
      * @param width
-     * 		The Width of the Ocean
+     *            The Width of the Ocean
      * @param depth
-     * 		The Depth of the Ocean
+     *            The Depth of the Ocean
      * @param olc
-     * 		The OceanLifeController
+     *            The OceanLifeController
      */
     public QuitFrame(int width, int depth, OceanLifeController olc) {
 	this.setLayout(null);
@@ -77,9 +78,9 @@ public class QuitFrame extends JFrame {
     class QuitFrameListener implements ActionListener {
 
 	/**
-	     * Whenever a Button is pressed this method checks which command the Button has 
-	     * and calls the equivalent method
-	     */
+	 * Whenever a Button is pressed this method checks which command the
+	 * Button has and calls the equivalent method
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	    String event = e.getActionCommand();
@@ -96,9 +97,15 @@ public class QuitFrame extends JFrame {
 	 * Saves the Game and exits the Game after it
 	 */
 	private void save() {
+	    int success = olc.save();
+	    if (success == 0) {
+		//if the User saved the File the Program exits
+		System.exit(0);
+	    } else {
+		//otherswise the window gets closed
+		cancel();
+	    }
 
-	    olc.save();
-	    System.exit(0);
 	}
 
 	/**

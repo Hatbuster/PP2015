@@ -22,7 +22,8 @@ import model.OceanObject;
 import model.Shark;
 
 /**
- * Class that Starts the Game, interface between Model(Ocean) and View(OceanLifeGUI)
+ * Class that Starts the Game, interface between Model(Ocean) and
+ * View(OceanLifeGUI)
  * 
  * @author Tobias
  *
@@ -34,7 +35,7 @@ public class OceanLifeController {
      */
     private OceanInterface oceanInterface;
     /**
-     * Instance of the GUI 
+     * Instance of the GUI
      */
     private OceanLifeGUI gui;
     /**
@@ -44,7 +45,9 @@ public class OceanLifeController {
 
     /**
      * Initiates everything - Creates Ocean, GUI, GameThread and PaintThread
-     * @throws InterruptedException -
+     * 
+     * @throws InterruptedException
+     *             -
      */
     public void start() throws InterruptedException {
 	Ocean ocean;
@@ -68,7 +71,8 @@ public class OceanLifeController {
     }
 
     /**
-     * Moves all Objects in the Ocean, checks for Collision and removes collided Objects
+     * Moves all Objects in the Ocean, checks for Collision and removes collided
+     * Objects
      */
     public synchronized void step() {
 	oceanInterface.move();
@@ -81,13 +85,15 @@ public class OceanLifeController {
      * Quits the Game
      */
     public void quit() {
-	new QuitFrame(oceanInterface.getWidth(), oceanInterface.getDepth(), this);
+	new QuitFrame(oceanInterface.getWidth(), oceanInterface.getDepth(),
+		this);
     }
 
     /**
      * Adds an Object to the Ocean
+     * 
      * @param oceanObject
-     * 		Removes the given Object from the Ocean
+     *            Removes the given Object from the Ocean
      */
     public void addObject(OceanObject oceanObject) {
 	oceanInterface.addOceanObject(oceanObject);
@@ -95,9 +101,10 @@ public class OceanLifeController {
 
     /**
      * Removes an Object from the Ocean
-     * @param oceanObject	
-     * 		Removes the Object on the Given position 
-     * 		
+     * 
+     * @param oceanObject
+     *            Removes the Object on the Given position
+     * 
      */
     public void removeObject(int oceanObject) {
 	oceanInterface.removeOceanObject(oceanObject);
@@ -106,8 +113,7 @@ public class OceanLifeController {
     /**
      * Returns the OceanInterface
      * 
-     * @return oceanInterface
-     * 		return the OceanInterface
+     * @return oceanInterface return the OceanInterface
      */
     public OceanInterface getOceanInterface() {
 	return oceanInterface;
@@ -117,17 +123,16 @@ public class OceanLifeController {
      * Sets the OceanInterface
      * 
      * @param oceanInterface
-     * 		sets the OceanInterface
+     *            sets the OceanInterface
      */
     public void setOceanInterface(OceanInterface oceanInterface) {
 	this.oceanInterface = oceanInterface;
     }
-    
+
     /**
      * Returns the OceanLifeGUI
      * 
-     * @return gui
-     * 		returns the OceanLifeGUI
+     * @return gui returns the OceanLifeGUI
      */
     public OceanLifeGUI getOceanLifeGui() {
 	return gui;
@@ -137,17 +142,21 @@ public class OceanLifeController {
      * Sets the OceanLifeGUI
      * 
      * @param gui
-     * 		sets the OceanLifeGUI
+     *            sets the OceanLifeGUI
      */
     public void setOceanLifeGui(OceanLifeGUI gui) {
 	this.gui = gui;
     }
 
     /**
-     * Saves the Game, calling a JFileChooser to select place and name to save to
+     * Saves the Game, calling a JFileChooser to select place and name to save
+     * to
+     * @return returnVal
+     * 			returns a boolean Flag whether the Save was completed and successful or not
      */
-    public void save() {
+    public int save() {
 	synchronized (oceanInterface.getOcean()) {
+	    int returnVal = 1;
 	    // bring up a file chooser
 	    final JFileChooser chooser = new JFileChooser();
 	    // set opening path to dir where this app runs
@@ -176,6 +185,7 @@ public class OceanLifeController {
 		    JOptionPane.showMessageDialog(optionPane,
 			    "Succesfully saved ocean.", "Success",
 			    JOptionPane.INFORMATION_MESSAGE);
+		    returnVal = 0;
 
 		} catch (Exception ex) {
 		    // inform user about failed save process
@@ -183,13 +193,16 @@ public class OceanLifeController {
 		    JOptionPane.showMessageDialog(optionPane,
 			    "Failed to save Ocean.", "Save failed",
 			    JOptionPane.ERROR_MESSAGE);
+		    returnVal = 1;
 		}
 	    }
+	    return returnVal;
 	}
     }
 
     /**
-     * Load the Game, calling a JFileChooser to select place and name to load from
+     * Load the Game, calling a JFileChooser to select place and name to load
+     * from
      */
     public void load() {
 	synchronized (oceanInterface.getOcean()) {
@@ -212,10 +225,8 @@ public class OceanLifeController {
 		    {
 			// change the current ocean
 			oceanInterface = newOcean;
-			gui.getUserPanel()
-				.setOceanObjects(oceanInterface.getOceanObjects());
-			//gui.getDrawPanel()
-			//	.setOceanObjects(oceanInterface.getOceanObjects());
+			gui.getUserPanel().setOceanObjects(
+				oceanInterface.getOceanObjects());
 			gui.getUserPanel().repaint();
 			gui.getDrawPanel().repaint();
 		    }
@@ -258,8 +269,8 @@ public class OceanLifeController {
     }
 
     /**
-     * Checks for Collision between Sharks and Fishes
-     * A Fish which collided with a Shark gets marked
+     * Checks for Collision between Sharks and Fishes A Fish which collided with
+     * a Shark gets marked
      */
     public void checkCollision() {
 	for (OceanObject oceanObject : oceanInterface.getOceanObjects()) {
@@ -271,7 +282,8 @@ public class OceanLifeController {
 		width = oceanObject.getWidth();
 		height = oceanObject.getHeight();
 		Rectangle hitBox = new Rectangle(x, y, width, height);
-		for (OceanObject oceanObject2 : oceanInterface.getOceanObjects()) {
+		for (OceanObject oceanObject2 : oceanInterface
+			.getOceanObjects()) {
 		    if (oceanObject2.getClass().equals(Fish.class)) {
 			int x2 = oceanObject2.getX();
 			int y2 = oceanObject2.getY();

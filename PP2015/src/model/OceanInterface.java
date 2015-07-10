@@ -10,6 +10,7 @@ import java.util.LinkedList;
 public interface OceanInterface {
 
     /**
+     * Returns the Width of an Ocean
      * 
      * @return The Width of an Ocean
      */
@@ -24,6 +25,7 @@ public interface OceanInterface {
     public void setWidth(int width);
 
     /**
+     * Returns the Depth of an Ocean
      * 
      * @return The Depth of an Ocean
      */
@@ -38,6 +40,7 @@ public interface OceanInterface {
     public void setDepth(int depth);
 
     /**
+     * Returns a List containing all Elements of an Ocean
      * 
      * @return The LinkedList containing all Elements of an Ocean
      */
@@ -73,6 +76,7 @@ public interface OceanInterface {
     public void move();
 
     /**
+     * Returns A String containing Information about the Ocean
      * 
      * @return A String containing Information about the Ocean
      */

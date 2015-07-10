@@ -264,6 +264,12 @@ public class OceanLifeController {
 	running = false;
     }
 
+    /**
+     * Returns if the Game is Running
+     * 
+     * @return running
+     * 			The Boolean Flag whether the Game is running or not
+     */
     public boolean getRunning() {
 	return running;
     }

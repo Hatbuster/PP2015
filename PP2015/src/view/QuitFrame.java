@@ -94,7 +94,7 @@ public class QuitFrame extends JFrame {
 	}
 
 	/**
-	 * Saves the Game and exits the Game after it
+	 * Saves the Game and exits the Game after it got saved successfully
 	 */
 	private void save() {
 	    int success = olc.save();

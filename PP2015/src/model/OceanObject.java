@@ -170,16 +170,6 @@ public abstract class OceanObject implements Serializable {
 	}
 
 	/**
-	 * Sets the Name to the given String
-	 * 
-	 * @param name
-	 *            The Name the Object should have
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
 	 * Returns the Width of an OceanObject
 	 * 
 	 * @return width
@@ -220,10 +210,22 @@ public abstract class OceanObject implements Serializable {
 		toRemove = remove;
 	}
 	
+	/**
+	 * Sets the Width of the OceanObject
+	 * 
+	 * @param width
+	 * 		The Width the Object should have
+	 */
 	public void setWidth(int width) {
 	    this.width = width;
 	}
 	
+	/**
+	 * Sets the Height of the OceanObject
+	 * 
+	 * @param height
+	 * 		The Height the Object should have
+	 */
 	public void setHeight(int height) {
 	    this.height = height;
 	}

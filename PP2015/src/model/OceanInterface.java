@@ -17,27 +17,11 @@ public interface OceanInterface {
     public int getWidth();
 
     /**
-     * Sets the Width of an Ocean
-     * 
-     * @param width
-     *            The Width an Ocean should have
-     */
-    public void setWidth(int width);
-
-    /**
      * Returns the Depth of an Ocean
      * 
      * @return The Depth of an Ocean
      */
     public int getDepth();
-
-    /**
-     * Sets the Depth of an Ocean
-     * 
-     * @param depth
-     *            The Depth an Ocean should have
-     */
-    public void setDepth(int depth);
 
     /**
      * Returns a List containing all Elements of an Ocean

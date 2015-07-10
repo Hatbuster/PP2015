@@ -92,16 +92,6 @@ public class OceanLifeGUI {
     }
 
     /**
-     * Sets the DrawGUI to the given DrawGUI
-     * 
-     * @param drawPanel
-     * 			the DrawGUI the OceanLifeGUI should have
-     */
-    public void setDrawPanel(DrawGUI drawPanel) {
-	this.drawPanel = drawPanel;
-    }
-
-    /**
      * Returns the UserGUI
      * 
      * @return userPanel
@@ -110,17 +100,6 @@ public class OceanLifeGUI {
     public UserGUI getUserPanel() {
 	return userPanel;
     }
-
-    /**
-     * Sets the UserGUI to the given UserGUI
-     * 
-     * @param userPanel
-     * 			the UserGUI the OceanLifeGUI should have
-     */
-    public void setUserPanel(UserGUI userPanel) {
-	this.userPanel = userPanel;
-    }
-
 
     /**
      * Class(Panel) where the Ocean gets drawn

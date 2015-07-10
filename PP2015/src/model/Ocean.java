@@ -99,32 +99,12 @@ public class Ocean implements OceanInterface, Serializable {
     }
 
     /**
-     * Sets the Width of the Ocean
-     * 
-     * @param width
-     *            The Width the Ocean should have
-     */
-    public void setWidth(int width) {
-	this.width = width;
-    }
-
-    /**
      * Returns the Depth of the Ocean
      * 
      * @return depth returns the depth of the Ocean
      */
     public int getDepth() {
 	return depth;
-    }
-
-    /**
-     * Sets the Depth of the Ocean
-     * 
-     * @param depth
-     *            The Depth the Ocean should have
-     */
-    public void setDepth(int depth) {
-	this.depth = depth;
     }
 
     /**

@@ -139,16 +139,6 @@ public class OceanLifeController {
     }
 
     /**
-     * Sets the OceanLifeGUI
-     * 
-     * @param gui
-     *            sets the OceanLifeGUI
-     */
-    public void setOceanLifeGui(OceanLifeGUI gui) {
-	this.gui = gui;
-    }
-
-    /**
      * Saves the Game, calling a JFileChooser to select place and name to save
      * to
      * @return returnVal

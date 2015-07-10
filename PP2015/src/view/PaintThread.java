@@ -5,7 +5,7 @@ import view.OceanLifeGUI;
 /**
  * Class that ensures the GUI is repainted at a given rate
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class PaintThread extends Thread {

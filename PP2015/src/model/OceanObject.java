@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * The abstract Class which every Object in the Ocean is based on
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public abstract class OceanObject implements Serializable {

@@ -3,7 +3,7 @@ package model;
 /**
  * The Class for a Plant
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class Plant extends OceanObject {

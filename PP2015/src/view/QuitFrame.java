@@ -11,7 +11,7 @@ import control.OceanLifeController;
 /**
  * Class the creates a JFrame which gets opened when you press the "Quit" Button
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class QuitFrame extends JFrame {
@@ -72,7 +72,7 @@ public class QuitFrame extends JFrame {
     /**
      * Class for ButtonHandling in the QuitFrame
      * 
-     * @author Tobias
+     * @author Tobias Gartmann, Benjamin Suhr
      *
      */
     class QuitFrameListener implements ActionListener {

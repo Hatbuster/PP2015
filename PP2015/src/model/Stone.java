@@ -3,7 +3,7 @@ package model;
 /**
  * The Class for a Stone
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class Stone extends OceanObject {

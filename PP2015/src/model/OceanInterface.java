@@ -5,7 +5,7 @@ import java.util.LinkedList;
 /**
  * The Interface for an Ocean.
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  */
 public interface OceanInterface {
 

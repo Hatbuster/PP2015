@@ -26,7 +26,7 @@ import model.Stone;
 /**
  * Class that draw the Ocean and the Input-Panel
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class OceanLifeGUI {
@@ -125,7 +125,7 @@ public class OceanLifeGUI {
     /**
      * Class(Panel) where the Ocean gets drawn
      * 
-     * @author Tobias
+     * @author Tobias Gartmann, Benjamin Suhr
      *
      */
     public class DrawGUI extends JPanel {
@@ -202,7 +202,7 @@ public class OceanLifeGUI {
     /**
      * Class(Panel) the User interacts with
      * 
-     * @author Tobias
+     * @author Tobias Gartmann, Benjamin Suhr
      *
      */
     public class UserGUI extends JPanel {

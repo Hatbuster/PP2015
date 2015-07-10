@@ -3,7 +3,7 @@ package model;
 /**
  * The Class for a Bubble
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class Bubble extends OceanObject {

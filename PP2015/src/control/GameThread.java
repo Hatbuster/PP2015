@@ -3,7 +3,7 @@ package control;
 /**
  * Class that manages the interaction in the Ocean
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class GameThread extends Thread {

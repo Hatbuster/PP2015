@@ -3,7 +3,7 @@ package control;
 /**
  * Class which contains the main-method and is called when the program is started
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class OceanLifeMain {

@@ -6,7 +6,7 @@ import java.util.LinkedList;
 /**
  * The Class that contains all Objects
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class Ocean implements OceanInterface, Serializable {

@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * The Class for a Fish
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class Fish extends OceanObject {

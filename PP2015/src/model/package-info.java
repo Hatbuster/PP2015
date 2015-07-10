@@ -3,7 +3,7 @@
  */
 /**
  * This package contains all classes that could be considered "model".
- * @author H@buster
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 package model;

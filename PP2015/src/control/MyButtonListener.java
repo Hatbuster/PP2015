@@ -15,7 +15,7 @@ import model.Stone;
 /**
  * Class that handles all Buttons in the UserGUI class
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class MyButtonListener implements ActionListener {

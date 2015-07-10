@@ -25,7 +25,7 @@ import model.Shark;
  * Class that Starts the Game, interface between Model(Ocean) and
  * View(OceanLifeGUI)
  * 
- * @author Tobias
+ * @author Tobias Gartmann, Benjamin Suhr
  *
  */
 public class OceanLifeController {

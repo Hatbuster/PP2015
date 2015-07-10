@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 public class OceanGraphics {
 
@@ -56,7 +57,10 @@ public class OceanGraphics {
 	    loaded = true;
 	} catch (IOException e) {
 	    loaded = false;
-	    // output
+	    JOptionPane optionPane = new JOptionPane();
+	    JOptionPane.showMessageDialog(optionPane,
+		    "Error while reading ImageFiles",
+		    "File not Found", JOptionPane.ERROR_MESSAGE);
 	}
     }
 

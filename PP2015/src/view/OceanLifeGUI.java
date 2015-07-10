@@ -429,7 +429,7 @@ public class OceanLifeGUI {
 	}
 
 	/**
-	 * Sets the LinkedList of all OceanObjects to the given List
+	 * Sets the LinkedList of all OceanObjects of the ComboBox to the given List
 	 * 
 	 * @param oceanObjects
 	 * 		The LinkedList the GUI should be working with

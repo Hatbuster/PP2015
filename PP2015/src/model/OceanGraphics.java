@@ -8,59 +8,83 @@ import javax.swing.JOptionPane;
 
 public class OceanGraphics {
 
-    private static BufferedImage fishImage, bubbleImage, plantImage, sharkImage,
-	    stoneImage, oceanImage;
+    /**
+     * Images for all OceanObjects and Ocean
+     */
+    private static BufferedImage fishImage, bubbleImage, plantImage,
+	    sharkImage, stoneImage, oceanImage;
 
+    /**
+     * Boolean Flag if Images have been loaded successfully
+     */
     private static boolean loaded;
 
+    /**
+     * Default Constructor
+     */
     public OceanGraphics() {
 
     }
 
+    /**
+     * 
+     * @param oceanObject
+     *            The OceanObject you need the Image of
+     * @return image The BufferedImage that belongs to the OceanObject
+     */
     public static BufferedImage getImage(OceanObject oceanObject) {
 	if (!loaded) {
 	    loadAllImages();
 	}
+	BufferedImage image = null;
 	if (oceanObject.getClass().equals(Fish.class)) {
-	    return fishImage;
+	    image = fishImage;
 	} else if (oceanObject.getClass().equals(Bubble.class)) {
-	    return bubbleImage;
+	    image = bubbleImage;
 	} else if (oceanObject.getClass().equals(Plant.class)) {
-	    return plantImage;
+	    image = plantImage;
 	} else if (oceanObject.getClass().equals(Shark.class)) {
-	    return sharkImage;
+	    image = sharkImage;
 	} else if (oceanObject.getClass().equals(Stone.class)) {
-	    return stoneImage;
-	} else {
-	    return null;
+	    image = stoneImage;
 	}
+	return image;
     }
 
+    /**
+     * Returns the Image of the OceanBackground
+     * 
+     * @return oceanImage
+     * 			The Image of the OceanBackgrounf
+     */
     public static BufferedImage getOceanImage() {
 	return oceanImage;
     }
 
+    /**
+     * Tries to load all Images, when failed it informs the user about it
+     */
     public static void loadAllImages() {
 	try {
-	    fishImage = ImageIO
-		    .read(OceanGraphics.class.getResource("/res/fish (2).png"));
-	    bubbleImage = ImageIO
-		    .read(OceanGraphics.class.getResource("/res/bubble.png"));
-	    plantImage = ImageIO
-		    .read(OceanGraphics.class.getResource("/res/plant.png"));
-	    sharkImage = ImageIO
-		    .read(OceanGraphics.class.getResource("/res/shark.png"));
-	    stoneImage = ImageIO
-		    .read(OceanGraphics.class.getResource("/res/stone.png"));
-	    oceanImage = ImageIO
-		    .read(OceanGraphics.class.getResource("/res/Ocean.png"));
+	    fishImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/fish (2).png"));
+	    bubbleImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/bubble.png"));
+	    plantImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/plant.png"));
+	    sharkImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/shark.png"));
+	    stoneImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/stone.png"));
+	    oceanImage = ImageIO.read(OceanGraphics.class
+		    .getResource("/res/Ocean.png"));
 	    loaded = true;
 	} catch (IOException e) {
 	    loaded = false;
 	    JOptionPane optionPane = new JOptionPane();
 	    JOptionPane.showMessageDialog(optionPane,
-		    "Error while reading ImageFiles",
-		    "File not Found", JOptionPane.ERROR_MESSAGE);
+		    "Error while reading ImageFiles", "File not Found",
+		    JOptionPane.ERROR_MESSAGE);
 	}
     }
 
